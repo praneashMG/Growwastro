@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details - Groww Astro</title>
+    <link rel="icon" href="images/logo.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* RTL */
+        .rtl {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .title {
+            margin-right: 20px !important;
+        }
+
+        /* THEME TOGGLE */
+        :root {
+            --home-bg: #ffffff;
+            --text-color: #111111;
+        }
+
+        [data-theme="dark"] {
+            --home-bg: #000000;
+            --text-color: #ffffff;
+        }
+
+        body {
+            background-color: var(--home-bg) !important;
+            color: var(--text-color);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        [data-theme="dark"] section,
+        [data-theme="dark"] .card {
+            background-color: #000000 !important;
+        }
+
+        [data-theme="dark"] .btn,
+        [data-theme="dark"] .btn1:hover {
+            color: #000000 !important;
+        }
+
+        [data-theme="dark"] body,
+        [data-theme="dark"] p,
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] h3,
+        [data-theme="dark"] h4,
+        [data-theme="dark"] h5,
+        [data-theme="dark"] h6,
+        [data-theme="dark"] span,
+        [data-theme="dark"] li,
+        [data-theme="dark"] a,
+        [data-theme="dark"] label,
+        [data-theme="dark"] small,
+        [data-theme="dark"] strong {
+            color: #ffffff !important;
+        }
+
+        @media (max-width:821px) {
+            .title {
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+    <!-- navbar -->
+    <div id="navbar"></div>
+
+    <!--  HERO BANNER -->
+    <section class="relative min-h-[70vh] flex items-center justify-center text-white overflow-hidden">
+
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="images/bg5.avif" alt="Blog Banner" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-[#7F1D1D]/80"></div>
+
+
+        <!-- Content -->
+        <div class="relative max-w-4xl mx-auto px-6 text-center">
+
+            <!-- Small Label -->
+            <span class="inline-block bg-[#FACC15] text-[#7F1D1D] px-5 py-2 rounded-full text-sm font-semibold mb-6">
+                Blog Details
+            </span>
+
+            <!-- Common Title -->
+            <h1 class="text-3xl md:text-5xl font-bold text-[#FACC15] mb-6">
+                Insights, Guidance & Spiritual Knowledge
+            </h1>
+
+            <!-- Common Description -->
+            <p class="text-gray-200 text-lg max-w-2xl mx-auto">
+                Explore our latest astrology and tarot articles to gain clarity,
+                inspiration, and deeper understanding of your life journey.
+            </p>
+
+        </div>
+
+    </section>
+    <!-- SECTION1 -->
+    <section class="bg-white py-24">
+
+        <div class="max-w-7xl mx-auto px-6 space-y-20">
+
+            <!-- CARD 1 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+            
+                <div class="h-80 overflow-hidden">
+                    <img src="images/img6.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Daily Horoscope Guide</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Daily horoscope provides insights about planetary movements.
+                            It helps you understand emotions and daily opportunities.
+                            Use it to make confident life decisions.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-star text-[#FACC15] mt-1"></i> Personalized
+                                predictions</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-calendar text-[#FACC15] mt-1"></i> Daily
+                                guidance</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-bullseye text-[#FACC15] mt-1"></i> Decision
+                                clarity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden md:order-2">
+                    <img src="images/img7.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Tarot Card Meanings</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Tarot cards reveal hidden spiritual messages.
+                            Each card carries symbolic guidance.
+                            They help you understand present and future events.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-spa text-[#FACC15] mt-1"></i> Spiritual clarity
+                            </li>
+                            <li class="flex gap-3"><i class="fa-solid fa-lightbulb text-[#FACC15] mt-1"></i> Life
+                                insight</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-heart text-[#FACC15] mt-1"></i> Emotional
+                                balance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden">
+                    <img src="images/img8.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Zodiac Compatibility</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Discover compatibility between zodiac signs.
+                            Improve relationships using astrology insights.
+                            Strengthen love and friendship bonds.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-user-group text-[#FACC15] mt-1"></i> Love match
+                            </li>
+                            <li class="flex gap-3"><i class="fa-solid fa-handshake text-[#FACC15] mt-1"></i> Friendship
+                                guidance</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-briefcase text-[#FACC15] mt-1"></i> Career
+                                alignment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden md:order-2">
+                    <img src="images/img9.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Moon Phases Guide</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Moon phases affect emotions and energy.
+                            Each phase carries unique vibrations.
+                            Use lunar cycles for better planning.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-moon text-[#FACC15] mt-1"></i> Emotional
+                                balance</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-calendar text-[#FACC15] mt-1"></i> Lunar
+                                tracking</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-spa text-[#FACC15] mt-1"></i> Spiritual growth
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden">
+                    <img src="images/img10.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Spiritual Growth Tips</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Daily spiritual practices improve inner peace.
+                            Meditation and mindfulness bring clarity.
+                            Strengthen your connection with self.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-seedling text-[#FACC15] mt-1"></i> Mindfulness
+                            </li>
+                            <li class="flex gap-3"><i class="fa-solid fa-om text-[#FACC15] mt-1"></i> Meditation</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-heart text-[#FACC15] mt-1"></i> Inner healing
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden md:order-2">
+                    <img src="images/img11.jpg"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Love Tarot Reading</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Love tarot provides relationship clarity.
+                            Understand emotional connections deeply.
+                            Gain guidance for romantic decisions.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-heart text-[#FACC15] mt-1"></i> Relationship
+                                advice</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-ring text-[#FACC15] mt-1"></i> Commitment
+                                clarity</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-user text-[#FACC15] mt-1"></i> Self growth</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 7 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden">
+                    <img src="images/img12.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Career Horoscope</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Career horoscope guides professional growth.
+                            Discover opportunities and timing.
+                            Plan your success strategically.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-briefcase text-[#FACC15] mt-1"></i> Job
+                                guidance</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-chart-line text-[#FACC15] mt-1"></i> Growth
+                                insights</li>
+                            <li class="flex gap-3"><i class="fa-solid fa-bullseye text-[#FACC15] mt-1"></i> Goal
+                                planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 8 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden md:order-2">
+                    <img src="images/img13.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Energy Healing</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Energy healing removes negativity.
+                            Restores balance and positivity.
+                            Helps you feel refreshed and aligned.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-bolt text-[#FACC15] mt-1"></i> Energy cleansing
+                            </li>
+                            <li class="flex gap-3"><i class="fa-solid fa-sun text-[#FACC15] mt-1"></i> Positive vibes
+                            </li>
+                            <li class="flex gap-3"><i class="fa-solid fa-leaf text-[#FACC15] mt-1"></i> Natural harmony
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 9 -->
+            <div class="card border border-white group grid lg:grid-cols-2 items-stretch gap-10
+            bg-gray-50 rounded-3xl shadow-md
+            overflow-hidden transition-all duration-500
+            hover:-translate-y-2 hover:shadow-2xl">
+                <div class="h-80 overflow-hidden">
+                    <img src="images/img14.avif"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#7F1D1D] mb-4">Planetary Transits</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Planetary transits influence major life events.
+                            They shape emotions and decisions.
+                            Stay prepared with transit awareness.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-globe text-[#FACC15] mt-1"></i> Transit updates
+                            </li>
+                            <li class="flex gap-3"><i class="fa-solid fa-star text-[#FACC15] mt-1"></i> Cosmic effects
+                            </li>
+                            <li class="flex gap-3"><i class="fa-solid fa-compass text-[#FACC15] mt-1"></i> Life
+                                direction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- FOOTER -->
+    <div id="footer"></div>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+                    },
+                },
+            },
+        }
+    </script>
+    </script>
+    <script src="navbar.js"></script>
+    <script src="footer.js"></script>
+</body>
+
+</html>

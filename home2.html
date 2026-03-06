@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home2 - Groww Astro</title>
+  <link rel="icon" href="images/logo.jpeg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* RTL */
+    .rtl {
+      direction: rtl;
+    }
+
+    [dir="rtl"] .title {
+      margin-right: 20px !important;
+    }
+
+    /* THEME TOGGLE */
+    :root {
+      --home-bg: #ffffff;
+      --text-color: #111111;
+    }
+
+    [data-theme="dark"] {
+      --home-bg: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      background-color: var(--home-bg) !important;
+      color: var(--text-color);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    [data-theme="dark"] section,
+    [data-theme="dark"] .card {
+      background-color: #000000 !important;
+    }
+
+    [data-theme="dark"] .btn,
+    [data-theme="dark"] .btn1:hover {
+      color: #000000 !important;
+    }
+
+    [data-theme="dark"] body,
+    [data-theme="dark"] p,
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6,
+    [data-theme="dark"] span,
+    [data-theme="dark"] li,
+    [data-theme="dark"] a,
+    [data-theme="dark"] label,
+    [data-theme="dark"] small,
+    [data-theme="dark"] strong {
+      color: #ffffff !important;
+    }
+
+    @media (max-width:391px) {
+      .title {
+        margin-top: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <!-- navbar -->
+  <div id="navbar"></div>
+
+  <!--  HERO BANNER -->
+<section class="min-h-screen bg-white flex items-center relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 py-16 md:py-20 w-full">
+
+    <!-- 
+      Mobile: 1 column
+      Tablet (md): 1 column (image top)
+      Desktop (lg): 2 columns
+    -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <!-- IMAGE (shows first on tablet & mobile) -->
+      <div class="relative order-1">
+
+        <img src="images/bg1.avif"
+             class="title w-full 
+                    h-[300px] sm:h-[350px] md:h-[420px] lg:h-[500px] 
+                    object-cover rounded-3xl shadow-2xl">
+
+        <!-- Accent Glow -->
+        <div class="absolute -top-6 -right-6 md:-top-8 md:-right-8 
+                    w-28 h-28 md:w-40 md:h-40 
+                    bg-[#FACC15] opacity-20 blur-3xl rounded-full">
+        </div>
+
+      </div>
+
+      <!-- TEXT CONTENT -->
+      <div class="text-center lg:text-left order-2">
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+                   font-bold text-[#7F1D1D] leading-tight">
+          Discover Your Path <br>
+          With Spiritual Guidance
+        </h1>
+
+        <p class="mt-5 md:mt-6 text-gray-600 
+                  text-base sm:text-lg 
+                  max-w-lg md:max-w-xl 
+                  mx-auto lg:mx-0">
+          Unlock clarity in love, career, and life through expert tarot and
+          astrology insights tailored just for you.
+        </p>
+
+        <!-- Buttons -->
+        <div class="mt-7 md:mt-8 
+                    flex flex-col sm:flex-row 
+                    gap-4 sm:gap-5 
+                    justify-center lg:justify-start">
+
+          <a href="tarot.html"
+             class="bg-[#7F1D1D] text-white 
+                    px-6 sm:px-8 py-3 sm:py-4 
+                    rounded-full font-semibold 
+                    text-sm sm:text-base
+                    transition duration-300
+                    hover:bg-[#FACC15] hover:text-[#7F1D1D] 
+                    hover:shadow-lg hover:-translate-y-1">
+            Learn Tarot
+          </a>
+
+          <a href="astro.html"
+             class="border-2 border-[#7F1D1D] text-[#7F1D1D] 
+                    px-6 sm:px-8 py-3 sm:py-4 
+                    rounded-full font-semibold
+                    text-sm sm:text-base
+                    transition duration-300
+                    hover:bg-[#7F1D1D] hover:text-white">
+            Explore Astro
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- SECTION1 -->
+ <section class="py-24 bg-[#7F1D1D] text-white relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold">
+        Trusted By Thousands
+      </h2>
+      <p class="mt-4 text-gray-200 max-w-2xl mx-auto">
+        Our experience and dedication have helped clients gain clarity,
+        confidence, and positive transformation.
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+
+      <!-- Stat 1 -->
+      <div class="group transition duration-300 hover:-translate-y-2">
+        <h3 class="text-4xl md:text-5xl font-bold text-[#FACC15]">
+          5K+
+        </h3>
+        <div class="w-12 h-1 bg-white mx-auto my-4 opacity-70"></div>
+        <p class="text-gray-200 text-sm">
+          Happy Clients
+        </p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="group transition duration-300 hover:-translate-y-2">
+        <h3 class="text-4xl md:text-5xl font-bold text-[#FACC15]">
+          10+
+        </h3>
+        <div class="w-12 h-1 bg-white mx-auto my-4 opacity-70"></div>
+        <p class="text-gray-200 text-sm">
+          Years Experience
+        </p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="group transition duration-300 hover:-translate-y-2">
+        <h3 class="text-4xl md:text-5xl font-bold text-[#FACC15]">
+          98%
+        </h3>
+        <div class="w-12 h-1 bg-white mx-auto my-4 opacity-70"></div>
+        <p class="text-gray-200 text-sm">
+          Accuracy Rate
+        </p>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="group transition duration-300 hover:-translate-y-2">
+        <h3 class="text-4xl md:text-5xl font-bold text-[#FACC15]">
+          24/7
+        </h3>
+        <div class="w-12 h-1 bg-white mx-auto my-4 opacity-70"></div>
+        <p class="text-gray-200 text-sm">
+          Online Support
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- SECTION2 -->
+ <section class="py-24 bg-white">
+
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D]">
+        Frequently Asked Questions
+      </h2>
+      <p class="mt-4 text-gray-600">
+        Find answers to common questions about our astrology and tarot services.
+      </p>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="space-y-6">
+
+      <!-- Item 1 -->
+      <details class="group border border-gray-200 rounded-2xl p-6 transition duration-300 hover:shadow-md">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-[#7F1D1D] text-lg">
+          How accurate are your tarot readings?
+          <span class="transition group-open:rotate-45 text-[#FACC15] text-2xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+          Our tarot readings are based on intuitive interpretation and years of experience.
+          While outcomes depend on individual choices, we provide meaningful guidance to help you make informed decisions.
+        </p>
+      </details>
+
+      <!-- Item 2 -->
+      <details class="group border border-gray-200 rounded-2xl p-6 transition duration-300 hover:shadow-md">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-[#7F1D1D] text-lg">
+          What details are required for astrology reports?
+          <span class="transition group-open:rotate-45 text-[#FACC15] text-2xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+          We require your date of birth, time of birth, and place of birth to create a
+          detailed and personalized horoscope analysis.
+        </p>
+      </details>
+
+      <!-- Item 3 -->
+      <details class="group border border-gray-200 rounded-2xl p-6 transition duration-300 hover:shadow-md">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-[#7F1D1D] text-lg">
+          Are the sessions confidential?
+          <span class="transition group-open:rotate-45 text-[#FACC15] text-2xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+          Yes, all consultations and personal information are kept strictly confidential.
+          Your privacy and trust are our top priority.
+        </p>
+      </details>
+
+      <!-- Item 4 -->
+      <details class="group border border-gray-200 rounded-2xl p-6 transition duration-300 hover:shadow-md">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-[#7F1D1D] text-lg">
+          How do I book a consultation?
+          <span class="transition group-open:rotate-45 text-[#FACC15] text-2xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+          You can book a session directly through our website by clicking the
+          “Book Consultation” button and selecting your preferred service.
+        </p>
+      </details>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SECTION3 -->
+ <section class="py-24 bg-[#7F1D1D] text-white relative overflow-hidden">
+
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Image -->
+      <div class="relative">
+        <img src="images/img2.webp"
+             class="w-full h-[450px] object-cover rounded-3xl shadow-2xl">
+      </div>
+
+      <!-- Content -->
+      <div class="text-center md:text-left">
+
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+          Meet Your Spiritual Guide
+        </h2>
+
+        <p class="mt-6 text-gray-200 leading-relaxed">
+          With over 10 years of experience in astrology and tarot reading,
+          our expert has helped thousands find clarity, confidence,
+          and positive direction in life.
+        </p>
+
+        <!-- Highlights -->
+        <div class="mt-8 space-y-4">
+
+          <div class="flex items-center gap-3 justify-center md:justify-start">
+            <span class="text-[#FACC15] text-xl">★</span>
+            <p class="text-gray-200 text-sm">
+              10+ Years of Professional Experience
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center md:justify-start">
+            <span class="text-[#FACC15] text-xl">★</span>
+            <p class="text-gray-200 text-sm">
+              Certified Astrology & Tarot Expert
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center md:justify-start">
+            <span class="text-[#FACC15] text-xl">★</span>
+            <p class="text-gray-200 text-sm">
+              Trusted by 5000+ Happy Clients
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Button -->
+        <div class="mt-10">
+          <a href="about.html"
+             class="inline-block bg-[#FACC15] text-[#7F1D1D] 
+                    px-8 py-4 rounded-full font-semibold
+                    transition duration-300
+                    hover:scale-105 hover:shadow-lg">
+            View More
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- SECTION4 -->
+ <section class="py-24 bg-white">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D]">
+        Our Spiritual Services
+      </h2>
+      <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Discover guidance tailored to your life’s journey.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- CARD 1 -->
+      <div class="card group bg-gray-50 p-8 rounded-3xl shadow-md 
+                  hover:shadow-xl transition duration-300 border border-white">
+
+        <div class="w-14 h-14 flex items-center justify-center 
+                    rounded-full bg-[#7F1D1D] 
+                    group-hover:bg-[#FACC15] transition duration-300">
+
+          <!-- Tarot Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-7 h-7 text-white group-hover:text-[#7F1D1D]"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 3v2m0 14v2m7-9h2M3 12H1m15.364 6.364l1.414 1.414M6.222 6.222L4.808 4.808m12.728 0l-1.414 1.414M6.222 17.778l-1.414 1.414"/>
+          </svg>
+
+        </div>
+
+        <h3 class="mt-6 text-xl font-semibold text-[#7F1D1D]">
+          Tarot Reading
+        </h3>
+
+        <p class="mt-3 text-gray-600 text-sm leading-relaxed">
+          Gain clarity about love, career, and life decisions through tarot insights.
+        </p>
+
+        <a href="tarot.html" class="inline-block mt-6 text-[#7F1D1D] font-semibold hover:text-[#FACC15]">
+          Book Now →
+        </a>
+
+      </div>
+
+
+      <!-- CARD 2 -->
+      <div class="card group bg-gray-50 p-8 rounded-3xl shadow-md 
+                  hover:shadow-xl transition duration-300 border border-white">
+
+        <div class="w-14 h-14 flex items-center justify-center 
+                    rounded-full bg-[#7F1D1D] 
+                    group-hover:bg-[#FACC15] transition duration-300">
+
+          <!-- Horoscope Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-7 h-7 text-white group-hover:text-[#7F1D1D]"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"/>
+          </svg>
+
+        </div>
+
+        <h3 class="mt-6 text-xl font-semibold text-[#7F1D1D]">
+          Horoscope Reading
+        </h3>
+
+        <p class="mt-3 text-gray-600 text-sm leading-relaxed">
+          Understand planetary influences shaping your destiny.
+        </p>
+
+        <a href="astro.html" class="inline-block mt-6 text-[#7F1D1D] font-semibold hover:text-[#FACC15]">
+          Book Now →
+        </a>
+
+      </div>
+
+
+      <!-- CARD 3 -->
+      <div class="card group bg-gray-50 p-8 rounded-3xl shadow-md 
+                  hover:shadow-xl transition duration-300 border border-white">
+
+        <div class="w-14 h-14 flex items-center justify-center 
+                    rounded-full bg-[#7F1D1D] 
+                    group-hover:bg-[#FACC15] transition duration-300">
+
+          <!-- Love Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-7 h-7 text-white group-hover:text-[#7F1D1D]"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.656L12 21 3.172 10.828a4 4 0 010-5.656z"/>
+          </svg>
+
+        </div>
+
+        <h3 class="mt-6 text-xl font-semibold text-[#7F1D1D]">
+          Love Compatibility
+        </h3>
+
+        <p class="mt-3 text-gray-600 text-sm leading-relaxed">
+          Discover emotional alignment and long-term compatibility.
+        </p>
+
+        <a href="astro.html" class="inline-block mt-6 text-[#7F1D1D] font-semibold hover:text-[#FACC15]">
+          Book Now →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SECTION5 -->
+ <section class="relative bg-fixed bg-center bg-cover py-32"
+         style="background-image: url('images/bg3.avif');">
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+
+    <!-- Small Tag -->
+    <p class="text-[#FACC15] uppercase tracking-widest text-sm font-semibold">
+      Your Future Awaits
+    </p>
+
+    <!-- Main Heading -->
+    <h2 class="mt-6 text-4xl md:text-6xl font-bold leading-tight">
+      Ready to Discover <br class="hidden md:block">
+      What the Universe Has Planned?
+    </h2>
+
+    <!-- Sub Text -->
+    <p class="mt-6 text-gray-300 max-w-2xl mx-auto text-lg">
+      Take the first step toward clarity, confidence, and positive transformation.
+      Your personalized spiritual guidance is just one session away.
+    </p>
+
+    <!-- Buttons -->
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-6">
+
+      <a href="sign.html"
+         class="bg-[#FACC15] text-[#7F1D1D] px-8 py-4 rounded-full 
+                font-semibold text-lg transition duration-300
+                hover:scale-105 hover:shadow-xl">
+        Connect Now
+      </a>
+
+      <a href="astro.html"
+         class="btn1 border border-white px-8 py-4 rounded-full 
+                font-semibold text-lg transition duration-300
+                hover:bg-white hover:text-[#7F1D1D]">
+        View Services
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- FOOTER -->
+  <div id="footer"></div>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+          },
+        },
+      },
+    }
+    lucide.createIcons();
+</script>
+  </script>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+
+</html>

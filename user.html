@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard-Groww Astro</title>
+    <link rel="icon" href="images/logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+
+<body class="bg-[#FFFDF5] dark:bg-[#1A0F0F] font-sans transition-all duration-300 font-sans">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Overlay -->
+        <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40 lg:hidden"></div>
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 
+    bg-[#FACC15] text-[#7F1D1D]
+    flex flex-col transform -translate-x-full lg:translate-x-0 
+    transition-transform duration-300 z-50">
+
+            <!-- Logo -->
+            <div class="p-6 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-[#7F1D1D] ">
+                    <a href="index.html" class="transition">
+                        Groww Astro
+                    </a>
+                </h1>
+                <button id="closeSidebar" class="lg:hidden text-xl">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 text-sm">
+
+                <!-- Dashboard -->
+                <a class="block px-4 py-3 rounded-xl bg-[#7F1D1D] text-white font-semibold">
+                    <i class="bi bi-speedometer2 mr-2"></i> My Dashboard
+                </a>
+
+                <!-- Birth Chart -->
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-stars mr-2"></i> My Birth Chart
+                </a>
+
+                <!-- Daily Horoscope -->
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-moon-stars mr-2"></i> Daily Horoscope
+                </a>
+
+                <!-- Book Reading -->
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-calendar-check mr-2"></i> Book a Reading
+                </a>
+
+                <!-- Saved Predictions -->
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-bookmark-heart mr-2"></i> Saved Predictions
+                </a>
+
+                <!-- Profile Settings -->
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-gear mr-2"></i> Profile Settings
+                </a>
+
+                <!-- Logout -->
+                <a href="login.html" class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-box-arrow-left mr-2"></i> Logout
+                </a>
+
+            </nav>
+            <!-- Mobile Settings -->
+            <div class="lg:hidden px-4 pb-4 space-y-2">
+
+                <button id="themeBtnMobile"
+                    class="w-full flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i id="themeIconMobile" class="bi bi-moon-fill"></i>
+                    Dark / Light Mode
+                </button>
+
+                <button id="rtlBtnMobile"
+                    class="w-full flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-arrow-left-right"></i>
+                    RTL Mode
+                </button>
+
+            </div>
+
+            <!-- Profile -->
+            <div class="p-5 border-t border-[#7F1D1D]/20 flex items-center gap-3">
+                <img src="images/client1.avif" class="w-12 h-12 rounded-full border-2 border-[#7F1D1D]">
+
+                <div>
+                    <p class="font-semibold text-[#7F1D1D]">User</p>
+                    <p class="text-xs text-[#7F1D1D]/70">Aisha</p>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <div class="flex-1 flex flex-col">
+
+            <!-- TOPBAR -->
+            <header class="bg-white dark:bg-[#2A1515] shadow px-6 py-4 flex justify-between items-center">
+
+                <h1 class="text-xl font-bold text-[#7F1D1D] dark:text-[#FACC15]">
+                    User
+                </h1>
+
+                <button id="openSidebar" class="lg:hidden text-2xl text-[#7F1D1D] dark:text-[#FACC15]">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="hidden lg:flex gap-3">
+
+                    <!-- THEME TOGGLE -->
+                    <button id="themeBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
+                        <i id="themeIconDesktop" class="bi bi-moon-fill"></i>
+                    </button>
+
+                    <!-- RTL TOGGLE -->
+                    <button id="rtlBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </button>
+
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <main class="p-3 sm:p-6 overflow-y-auto space-y-6 text-gray-800 dark:text-gray-100">
+
+                <!-- Welcome Banner -->
+                <div class="bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white p-5 sm:p-6 rounded-2xl shadow">
+                    <h2 class="text-lg sm:text-2xl font-bold">Welcome Back, Aisha</h2>
+                    <p class="text-xs sm:text-base mt-2">
+                        Your cosmic journey continues. Check today’s horoscope and upcoming readings.
+                    </p>
+                </div>
+
+                <!-- Quick Cosmic Stats -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
+                        <i class="bi bi-stars text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h3 class="text-lg font-bold mt-2">Leo ♌</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Your Zodiac Sign</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
+                        <i class="bi bi-calendar-check text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h3 class="text-lg font-bold mt-2">2</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Upcoming Readings</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
+                        <i class="bi bi-journal-text text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h3 class="text-lg font-bold mt-2">5</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Saved Reports</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
+                        <i class="bi bi-bag-check text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h3 class="text-lg font-bold mt-2">3</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Purchased Kits</p>
+                    </div>
+
+                </div>
+
+                <!-- Daily Horoscope -->
+                <div class="bg-white dark:bg-[#2A1515] p-5 sm:p-6 rounded-2xl shadow">
+                    <h2 class="text-base font-bold mb-4"> Today’s Horoscope</h2>
+                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                        Today is a powerful day for self-reflection and growth. Trust your intuition.
+                        A financial opportunity may arise — stay open to unexpected blessings.
+                    </p>
+                    <button
+                        class="mt-4 bg-[#7F1D1D] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                        View Full Prediction
+                    </button>
+                </div>
+
+                <!-- Book Private Reading -->
+                <div class="bg-white dark:bg-[#2A1515] p-5 sm:p-6 rounded-2xl shadow">
+                    <h2 class="text-base font-bold mb-4"> Book a Private Reading</h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
+                            <h3 class="font-semibold">Birth Chart Reading</h3>
+                            <p class="text-xs text-gray-500 mt-2">Detailed life analysis & predictions</p>
+                            <button
+                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                Book Now
+                            </button>
+                        </div>
+
+                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
+                            <h3 class="font-semibold">Love Compatibility</h3>
+                            <p class="text-xs text-gray-500 mt-2">Relationship & marriage insights</p>
+                            <button
+                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                Book Now
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Digital Spell Kit Store -->
+                <div class="bg-white dark:bg-[#2A1515] p-5 sm:p-6 rounded-2xl shadow">
+                    <h2 class="text-base font-bold mb-5"> Digital Spell Kits</h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
+                            <h3 class="font-semibold">Wealth Attraction Kit</h3>
+                            <p class="text-xs text-gray-500 mt-2">$29</p>
+                            <button
+                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                Buy Now
+                            </button>
+                        </div>
+
+                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
+                            <h3 class="font-semibold">Love Energy Ritual</h3>
+                            <p class="text-xs text-gray-500 mt-2">$24</p>
+                            <button
+                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                Buy Now
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+    </div>
+
+    <script>
+
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const openBtn = document.getElementById("openSidebar");
+        const closeBtn = document.getElementById("closeSidebar");
+
+        openBtn.onclick = () => {
+            sidebar.classList.remove("-translate-x-full");
+            overlay.classList.remove("hidden");
+        };
+
+        closeBtn.onclick = () => {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        };
+
+        overlay.onclick = () => {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        };
+
+        function toggleTheme() {
+            document.documentElement.classList.toggle("dark");
+
+            const isDark = document.documentElement.classList.contains("dark");
+
+            document.getElementById("themeIconDesktop").className =
+                isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+
+            document.getElementById("themeIconMobile").className =
+                isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+        }
+
+        document.getElementById("themeBtnDesktop").onclick = toggleTheme;
+        document.getElementById("themeBtnMobile").onclick = toggleTheme;
+
+
+        // RTL
+        function toggleRTL() {
+            document.documentElement.dir =
+                document.documentElement.dir === "rtl" ? "ltr" : "rtl";
+        }
+
+        document.getElementById("rtlBtnDesktop").onclick = toggleRTL;
+        document.getElementById("rtlBtnMobile").onclick = toggleRTL;
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+                    },
+                },
+            },
+        }
+
+    </script>
+
+</body>
+
+</html>

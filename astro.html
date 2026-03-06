@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astrology - Groww Astro</title>
+  <link rel="icon" href="images/logo.jpeg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* RTL */
+    .rtl {
+      direction: rtl;
+    }
+
+    [dir="rtl"] .title {
+      margin-right: 20px !important;
+    }
+
+    /* THEME TOGGLE */
+    :root {
+      --home-bg: #ffffff;
+      --text-color: #111111;
+    }
+
+    [data-theme="dark"] {
+      --home-bg: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      background-color: var(--home-bg) !important;
+      color: var(--text-color);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    [data-theme="dark"] section,
+    [data-theme="dark"] .card {
+      background-color: #000000 !important;
+    }
+
+    [data-theme="dark"] .btn,
+    [data-theme="dark"] .btn1:hover {
+      color: #000000 !important;
+    }
+
+    [data-theme="dark"] body,
+    [data-theme="dark"] p,
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6,
+    [data-theme="dark"] span,
+    [data-theme="dark"] li,
+    [data-theme="dark"] a,
+    [data-theme="dark"] label,
+    [data-theme="dark"] small,
+    [data-theme="dark"] strong {
+      color: #ffffff !important;
+    }
+
+    @media (max-width:415px) {
+      .title {
+        margin-top: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <!-- navbar -->
+  <div id="navbar"></div>
+
+  <!--  HERO BANNER -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden text-white">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img src="images/astrology-hero.jpg"
+             class="w-full h-full object-cover">
+    </div>
+
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#7F1D1D]/95 via-[#7F1D1D]/80 to-black/70"></div>
+
+    <!-- Decorative Glow Circles -->
+    <div class="absolute top-20 left-20 w-72 h-72 bg-[#FACC15] opacity-20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-10 right-20 w-96 h-96 bg-[#FACC15] opacity-10 blur-3xl rounded-full"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+
+        <!-- Main Title -->
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+            Unlock the Power of the <span class="text-[#FACC15]">Stars</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-10">
+            Explore detailed horoscopes, planetary movements, tarot guidance,
+            and cosmic energies designed to help you understand your destiny
+            and make confident life decisions.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+
+            <a href="astro.html"
+               class="bg-[#FACC15] text-[#7F1D1D] px-10 py-4 rounded-xl font-bold
+                      hover:bg-yellow-400 transition duration-300 shadow-xl">
+                Explore Astrology
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION1 -->
+
+<section class="bg-gray-50 py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D] mb-4">
+                Our Astrology Services
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Explore our professional astrology solutions designed to guide,
+                inspire, and bring clarity to your life journey.
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- Card 1 -->
+            <div class="card border border-white group bg-white p-8 rounded-3xl shadow-md
+                        transition-all duration-500
+                        hover:-translate-y-3 hover:shadow-2xl text-center">
+
+                <div class="text-5xl text-[#FACC15] mb-6">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mb-3">
+                    Daily Horoscope
+                </h3>
+
+                <p class="text-gray-600 text-sm">
+                    Get accurate daily predictions based on planetary movements.
+                </p>
+
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card border border-white group bg-white p-8 rounded-3xl shadow-md
+                        transition-all duration-500
+                        hover:-translate-y-3 hover:shadow-2xl text-center">
+
+                <div class="text-5xl text-[#FACC15] mb-6">
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mb-3">
+                    Zodiac Analysis
+                </h3>
+
+                <p class="text-gray-600 text-sm">
+                    Get accurate daily predictions based on planetary movements.
+                </p>
+
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card border border-white group bg-white p-8 rounded-3xl shadow-md
+                        transition-all duration-500
+                        hover:-translate-y-3 hover:shadow-2xl text-center">
+
+                <div class="text-5xl text-[#FACC15] mb-6">
+                    <i class="fa-solid fa-hands-praying"></i>
+                </div>
+
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mb-3">
+                    Tarot Readings
+                </h3>
+
+                <p class="text-gray-600 text-sm">
+                    Get accurate daily predictions based on planetary movements.
+                </p>
+
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card border border-white group bg-white p-8 rounded-3xl shadow-md
+                        transition-all duration-500
+                        hover:-translate-y-3 hover:shadow-2xl text-center">
+
+                <div class="text-5xl text-[#FACC15] mb-6">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mb-3">
+                    Planetary Transit
+                </h3>
+
+                <p class="text-gray-600 text-sm">
+                    Get accurate daily predictions based on planetary movements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION2 -->
+ <section class="bg-white py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D] mb-4">
+                12 Zodiac Signs
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Explore personality traits, strengths, and cosmic influence of all zodiac signs.
+            </p>
+        </div>
+
+        <!-- Zodiac Grid -->
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+
+            <!-- Aries -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♈</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Aries</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Taurus -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♉</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Taurus</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Gemini -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♊</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Gemini</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Cancer -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♋</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Cancer</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Leo -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♌</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Leo</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Virgo -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♍</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Virgo</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Libra -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♎</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Libra</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Scorpio -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♏</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Scorpio</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Sagittarius -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+               <span class="text-3xl text-[#FACC15]">♐</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Sagittarius</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Capricorn -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♑</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Capricorn</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Aquarius -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♒</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Aquarius</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+            <!-- Pisces -->
+            <div class="card border border-white group bg-gray-50 p-8 rounded-3xl shadow-md text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+                <span class="text-3xl text-[#FACC15]">♓</span>
+                <h3 class="text-xl font-semibold text-[#7F1D1D] mt-2">Pisces</h3>
+                <p class="text-gray-600 text-sm mt-3">Bold, energetic, and natural leaders.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION3 -->
+ <section class="bg-gray-50 py-24">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+            <h2 class="text-4xl font-bold text-[#7F1D1D] mb-6">
+                What is a Birth Chart?
+            </h2>
+
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                A birth chart is a cosmic map created using your date, time,
+                and place of birth. It shows planetary positions at the moment you were born.
+            </p>
+
+            <p class="text-gray-600 leading-relaxed">
+                It reveals personality traits, strengths, challenges, and life direction.
+                It is the foundation of astrology readings.
+            </p>
+        </div>
+
+        <div class="group overflow-hidden rounded-3xl shadow-2xl">
+
+    <img src="images/pic1.avif"
+         class="w-full object-cover
+                transition-transform duration-500
+                group-hover:scale-110">
+
+</div>
+
+    </div>
+</section>
+      <!-- FOOTER -->
+  <div id="footer"></div>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+          },
+        },
+      },
+    }
+</script>
+  </script>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+
+</html>

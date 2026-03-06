@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home1 - Groww Astro</title>
+  <link rel="icon" href="images/logo.jpeg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* RTL */
+    .rtl {
+      direction: rtl;
+    }
+
+    [dir="rtl"] .title {
+      margin-right: 20px !important;
+    }
+
+    /* THEME TOGGLE */
+    :root {
+      --home-bg: #ffffff;
+      --text-color: #111111;
+    }
+
+    [data-theme="dark"] {
+      --home-bg: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      background-color: var(--home-bg) !important;
+      color: var(--text-color);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    [data-theme="dark"] section,
+    [data-theme="dark"] .card {
+      background-color: #000000 !important;
+    }
+
+    [data-theme="dark"] .btn,
+    [data-theme="dark"] .btn1:hover {
+      color: #000000 !important;
+    }
+
+    [data-theme="dark"] body,
+    [data-theme="dark"] p,
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6,
+    [data-theme="dark"] span,
+    [data-theme="dark"] li,
+    [data-theme="dark"] a,
+    [data-theme="dark"] label,
+    [data-theme="dark"] small,
+    [data-theme="dark"] strong {
+      color: #ffffff !important;
+    }
+
+    @media (max-width:821px) {
+      .title {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <!-- navbar -->
+  <div id="navbar"></div>
+
+  <!--  HERO BANNER -->
+ <section class="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="images/bg2.avif"
+         alt="Astrology Background"
+         class="w-full h-full object-cover">
+  </div>
+
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl px-6">
+
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+      Reveal Your
+      <span class="text-[#FACC15]">Cosmic Destiny</span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg md:text-xl text-gray-200">
+      Powerful Astrology & Tarot readings to guide your love,
+      career, and life journey.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+
+      <a href="contact.html"
+         class="bg-[#FACC15] text-[#7F1D1D] px-8 py-3 rounded-full font-semibold hover:scale-105 transition duration-300">
+        Book a Reading
+      </a>
+
+      <a href="astro.html"
+         class="border-2 border-[#FACC15] text-[#FACC15] px-8 py-3 rounded-full font-semibold hover:bg-[#FACC15] hover:text-[#7F1D1D] transition duration-300">
+        Explore Services
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- SECTION1 -->
+ <section class="py-24 bg-white">
+
+  <div class="max-w-7xl mx-auto px-6 text-center">
+
+    <!-- Section Title -->
+    <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D]">
+      Why Choose Groww Mystic
+    </h2>
+
+    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+      Trusted spiritual guidance with accurate insights and
+      personalized readings tailored for your life journey.
+    </p>
+
+    <!-- Features Grid -->
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Feature 1 -->
+      <div class="p-8 rounded-2xl border hover:shadow-xl transition duration-300">
+        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#7F1D1D] text-[#FACC15]">
+          <i data-lucide="star"></i>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-[#7F1D1D]">
+          Accurate Predictions
+        </h3>
+        <p class="mt-3 text-gray-600 text-sm">
+          Deep astrological calculations for precise and reliable guidance.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="p-8 rounded-2xl border hover:shadow-xl transition duration-300">
+        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#7F1D1D] text-[#FACC15]">
+          <i data-lucide="moon"></i>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-[#7F1D1D]">
+          Personal readings
+        </h3>
+        <p class="mt-3 text-gray-600 text-sm">
+          Customized tarot and birth chart sessions based on your details.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="p-8 rounded-2xl border hover:shadow-xl transition duration-300">
+        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#7F1D1D] text-[#FACC15]">
+          <i data-lucide="shield-check"></i>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-[#7F1D1D]">
+          100% Confidential
+        </h3>
+        <p class="mt-3 text-gray-600 text-sm">
+          Your personal information and sessions remain private & secure.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="p-8 rounded-2xl border hover:shadow-xl transition duration-300">
+        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#7F1D1D] text-[#FACC15]">
+          <i data-lucide="clock"></i>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-[#7F1D1D]">
+          Instant Sessions
+        </h3>
+        <p class="mt-3 text-gray-600 text-sm">
+          Book live astrology or tarot sessions anytime, anywhere 24/7.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SECTION2 -->
+ <section class="py-24 bg-[#7F1D1D] text-white">
+
+  <div class="max-w-5xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold">
+        How It Works
+      </h2>
+      <p class="mt-4 text-gray-200 max-w-2xl mx-auto">
+        Three simple steps to receive accurate astrology and tarot guidance.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="space-y-10">
+
+      <!-- Step -->
+      <div class="group flex flex-col md:flex-row items-center justify-center 
+                  text-center md:text-left gap-8 p-8 rounded-2xl 
+                  transition-all duration-500 
+                  hover:bg-[#8B1E1E] hover:shadow-2xl hover:-translate-y-2">
+
+        <!-- Number -->
+        <div class="w-20 h-20 flex items-center justify-center rounded-full 
+                    bg-[#FACC15] text-[#7F1D1D] text-2xl font-bold shrink-0
+                    transition-all duration-500
+                    group-hover:scale-110 group-hover:shadow-lg">
+          01
+        </div>
+
+        <!-- Content -->
+        <div class="max-w-xl">
+          <h3 class="text-2xl font-semibold transition-colors duration-300 group-hover:text-[#FACC15]">
+            Book a Session
+          </h3>
+          <p class="mt-3 text-gray-200">
+            Choose your preferred astrology or tarot service and schedule your
+            session easily at your convenience with instant confirmation.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Step -->
+      <div class="group flex flex-col md:flex-row items-center justify-center 
+                  text-center md:text-left gap-8 p-8 rounded-2xl 
+                  transition-all duration-500 
+                  hover:bg-[#8B1E1E] hover:shadow-2xl hover:-translate-y-2">
+
+        <div class="w-20 h-20 flex items-center justify-center rounded-full 
+                    bg-[#FACC15] text-[#7F1D1D] text-2xl font-bold shrink-0
+                    transition-all duration-500
+                    group-hover:scale-110 group-hover:shadow-lg">
+          02
+        </div>
+
+        <div class="max-w-xl">
+          <h3 class="text-2xl font-semibold transition-colors duration-300 group-hover:text-[#FACC15]">
+            Get Insights
+          </h3>
+          <p class="mt-3 text-gray-200">
+            Our experts analyze your birth details and tarot spread carefully
+            to deliver accurate predictions and meaningful spiritual insights.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Step -->
+      <div class="group flex flex-col md:flex-row items-center justify-center 
+                  text-center md:text-left gap-8 p-8 rounded-2xl 
+                  transition-all duration-500 
+                  hover:bg-[#8B1E1E] hover:shadow-2xl hover:-translate-y-2">
+
+        <div class="w-20 h-20 flex items-center justify-center rounded-full 
+                    bg-[#FACC15] text-[#7F1D1D] text-2xl font-bold shrink-0
+                    transition-all duration-500
+                    group-hover:scale-110 group-hover:shadow-lg">
+          03
+        </div>
+
+        <div class="max-w-xl">
+          <h3 class="text-2xl font-semibold transition-colors duration-300 group-hover:text-[#FACC15]">
+            Receive Guidance
+          </h3>
+          <p class="mt-3 text-gray-200">
+            Gain clarity and confidence to make informed decisions in love,
+            career, and personal growth with expert spiritual advice.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- SECTION3 -->
+ <section class="py-24 bg-white">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Left Image -->
+      <div class="relative">
+        <img src="images/img1.avif"
+             class="rounded-3xl shadow-xl w-full h-[420px] object-cover">
+
+        <!-- Accent Shape -->
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 
+                    bg-[#FACC15] rounded-3xl opacity-20 blur-2xl">
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div>
+
+        <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D] leading-tight">
+          Why Choose Our Spiritual Guidance?
+        </h2>
+
+        <p class="mt-6 text-gray-600">
+          We combine traditional wisdom with modern interpretation to deliver
+          accurate and meaningful spiritual insights tailored to your life.
+        </p>
+
+        <!-- Features -->
+        <div class="mt-10 space-y-8">
+
+  <!-- Feature -->
+  <div class="flex items-center sm:items-start gap-4 group">
+
+    <!-- Icon -->
+    <div class="flex-shrink-0 
+                w-10 h-10 sm:w-12 sm:h-12 
+                flex items-center justify-center 
+                rounded-full bg-[#7F1D1D] text-white 
+                text-sm sm:text-base
+                transition duration-300 
+                group-hover:bg-[#FACC15] group-hover:text-[#7F1D1D]">
+      ✓
+    </div>
+
+    <!-- Content -->
+    <div>
+      <h4 class="text-lg sm:text-xl font-semibold text-[#7F1D1D]">
+        Trusted Experts
+      </h4>
+      <p class="text-gray-600 text-sm mt-1">
+        Experienced astrologers and tarot readers with proven accuracy.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Feature -->
+  <div class="flex items-center sm:items-start gap-4 group">
+
+    <div class="flex-shrink-0 
+                w-10 h-10 sm:w-12 sm:h-12 
+                flex items-center justify-center 
+                rounded-full bg-[#7F1D1D] text-white 
+                text-sm sm:text-base
+                transition duration-300 
+                group-hover:bg-[#FACC15] group-hover:text-[#7F1D1D]">
+      ✓
+    </div>
+
+    <div>
+      <h4 class="text-lg sm:text-xl font-semibold text-[#7F1D1D]">
+        Personalized Reports
+      </h4>
+      <p class="text-gray-600 text-sm mt-1">
+        Customized insights tailored specifically to your birth details.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Feature -->
+  <div class="flex items-center sm:items-start gap-4 group">
+
+    <div class="flex-shrink-0 
+                w-10 h-10 sm:w-12 sm:h-12 
+                flex items-center justify-center 
+                rounded-full bg-[#7F1D1D] text-white 
+                text-sm sm:text-base
+                transition duration-300 
+                group-hover:bg-[#FACC15] group-hover:text-[#7F1D1D]">
+      ✓
+    </div>
+
+    <div>
+      <h4 class="text-lg sm:text-xl font-semibold text-[#7F1D1D]">
+        100% Confidential
+      </h4>
+      <p class="text-gray-600 text-sm mt-1">
+        Your personal information and sessions remain fully private.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+        <!-- Button -->
+        <div class="mt-12">
+          <a href="about.html"
+             class="inline-block bg-[#7F1D1D] text-white 
+                    px-8 py-4 rounded-full font-semibold 
+                    transition duration-300
+                    hover:bg-[#FACC15] hover:text-[#7F1D1D] 
+                    hover:shadow-lg hover:-translate-y-1">
+            View more
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- SECTION4 -->
+ <section class="py-24 bg-gray-50">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D]">
+        What Our Clients Say
+      </h2>
+      <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Real experiences from people who found clarity and confidence through our guidance.
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Testimonial 1 -->
+      <div class="card bg-white p-8 rounded-3xl shadow-md 
+                  hover:shadow-xl transition duration-500 
+                  hover:-translate-y-2">
+
+        <div class="flex items-center gap-4 mb-6">
+          <img src="images/client1.avif" 
+               class="w-14 h-14 rounded-full object-cover">
+          <div>
+            <h4 class="font-semibold text-[#7F1D1D]">Priya S.</h4>
+            <p class="text-sm text-gray-500">Chennai</p>
+          </div>
+        </div>
+
+        <p class="text-gray-600 text-sm leading-relaxed">
+          “The tarot reading was incredibly accurate and helped me make a major
+          career decision with confidence.”
+        </p>
+
+        <!-- Rating -->
+        <div class="mt-6 text-[#FACC15] text-lg">
+          ★★★★★
+        </div>
+
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="card bg-white p-8 rounded-3xl shadow-md 
+                  hover:shadow-xl transition duration-500 
+                  hover:-translate-y-2">
+
+        <div class="flex items-center gap-4 mb-6">
+          <img src="images/client2.avif" 
+               class="w-14 h-14 rounded-full object-cover">
+          <div>
+            <h4 class="font-semibold text-[#7F1D1D]">Rahul K.</h4>
+            <p class="text-sm text-gray-500">Bangalore</p>
+          </div>
+        </div>
+
+        <p class="text-gray-600 text-sm leading-relaxed">
+          “The astrology report was detailed and surprisingly accurate.
+          It gave me clarity about my relationship and future.”
+        </p>
+
+        <div class="mt-6 text-[#FACC15] text-lg">
+          ★★★★★
+        </div>
+
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="card bg-white p-8 rounded-3xl shadow-md 
+                  hover:shadow-xl transition duration-500 
+                  hover:-translate-y-2">
+
+        <div class="flex items-center gap-4 mb-6">
+          <img src="images/client3.avif" 
+               class="w-14 h-14 rounded-full object-cover">
+          <div>
+            <h4 class="font-semibold text-[#7F1D1D]">Ananya R.</h4>
+            <p class="text-sm text-gray-500">Coimbatore</p>
+          </div>
+        </div>
+
+        <p class="text-gray-600 text-sm leading-relaxed">
+          “Professional, confidential, and very insightful.
+          I felt comfortable and truly understood during the session.”
+        </p>
+
+        <div class="mt-6 text-[#FACC15] text-lg">
+          ★★★★★
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- SECTION5 -->
+ <section class="py-24 bg-[#7F1D1D] text-white relative overflow-hidden">
+
+  <!-- Decorative Glow -->
+  <div class="absolute top-0 right-0 w-96 h-96 
+              bg-[#FACC15] opacity-20 blur-3xl rounded-full">
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+      Ready to Discover Your Future?
+    </h2>
+
+    <p class="mt-6 text-gray-200 max-w-2xl mx-auto">
+      Take the first step toward clarity and confidence. Book your personalized
+      astrology or tarot session today and unlock powerful insights.
+    </p>
+
+    <!-- Buttons -->
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-6">
+
+      <a href="contact.html"
+         class="bg-[#FACC15] text-[#7F1D1D] px-8 py-4 rounded-full 
+                font-semibold transition duration-300
+                hover:scale-105 hover:shadow-lg">
+        Book Now
+      </a>
+
+      <a href="blog.html"
+         class="btn1 border border-white px-8 py-4 rounded-full 
+                font-semibold transition duration-300
+                hover:bg-white hover:text-[#7F1D1D]">
+        Learn More
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+  <!-- FOOTER -->
+  <div id="footer"></div>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+          },
+        },
+      },
+    }
+    lucide.createIcons();
+</script>
+  </script>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Groww Astro</title>
+    <link rel="icon" href="images/logo.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* RTL */
+        .rtl {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .title {
+            margin-right: 20px !important;
+        }
+
+        /* THEME TOGGLE */
+        :root {
+            --home-bg: #ffffff;
+            --text-color: #111111;
+        }
+
+        [data-theme="dark"] {
+            --home-bg: #000000;
+            --text-color: #ffffff;
+        }
+
+        body {
+            background-color: var(--home-bg) !important;
+            color: var(--text-color);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        [data-theme="dark"] section,
+        [data-theme="dark"] .card {
+            background-color: #000000 !important;
+        }
+
+        [data-theme="dark"] .btn,
+        [data-theme="dark"] .btn1:hover {
+            color: #000000 !important;
+        }
+
+        [data-theme="dark"] body,
+        [data-theme="dark"] p,
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] h3,
+        [data-theme="dark"] h4,
+        [data-theme="dark"] h5,
+        [data-theme="dark"] h6,
+        [data-theme="dark"] span,
+        [data-theme="dark"] li,
+        [data-theme="dark"] a,
+        [data-theme="dark"] label,
+        [data-theme="dark"] small,
+        [data-theme="dark"] strong {
+            color: #ffffff !important;
+        }
+
+        @media (max-width:360px) {
+            .title {
+                margin-top: 50px;
+            }
+        }
+
+        @keyframes moveStars {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-50%);
+            }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 200%;
+            background-image: radial-gradient(#FACC15 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: moveStars 60s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+    <!-- navbar -->
+    <div id="navbar"></div>
+
+    <!--  HERO BANNER -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+        <!-- Cosmic Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-to-br 
+              from-[#7F1D1D] via-[#5a1414] to-black"></div>
+
+
+        <!-- Floating Zodiac Icons -->
+        <div class="absolute inset-0 pointer-events-none text-[#FACC15] opacity-20 hidden md:block">
+            <i class="bi bi-moon-stars-fill text-6xl absolute top-20 left-20 animate-bounce"></i>
+            <i class="bi bi-stars text-5xl absolute bottom-20 right-20 animate-bounce"></i>
+            <i class="bi bi-brightness-high text-5xl absolute top-40 right-40 animate-spin"></i>
+        </div>
+
+        <!-- Glass Card Content -->
+        <div class="title relative z-10 backdrop-blur-xl 
+              bg-white/10 border border-[#FACC15]/30 
+              rounded-3xl p-10 md:p-16 text-center 
+              max-w-3xl mx-6 shadow-2xl">
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold 
+               text-[#FACC15] mb-6">
+                Let’s Align Your Stars <i class="bi bi-star-fill"></i>
+            </h1>
+
+            <p class="text-gray-200 text-lg mb-10">
+                Whether you seek clarity, guidance, or cosmic direction,
+                our astrologers are here to connect you with your
+                planetary path and universal energy.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+
+                <a href="#contact-form" class="bg-[#FACC15] text-[#7F1D1D] px-10 py-4 rounded-full 
+                font-bold hover:scale-110 transition duration-300 shadow-xl">
+                    <i class="bi bi-envelope-fill mr-2"></i>
+                    Send Message
+                </a>
+
+                <a href="tel:+919999999999" class="border-2 border-[#FACC15] text-[#FACC15] 
+                px-10 py-4 rounded-full font-bold 
+                hover:bg-[#FACC15] hover:text-[#7F1D1D] 
+                transition duration-300">
+                    <i class="bi bi-telephone-fill mr-2"></i>
+                    Call Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- SECTION1 -->
+    <!-- Font Awesome (Add in <head>) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <section class="bg-white py-24">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Section Title -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#7F1D1D] mb-4">
+                    Let’s Connect
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Book your astrology or tarot consultation.
+                    We are here to guide your spiritual journey.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-stretch">
+
+                <!-- LEFT SIDE - FORM -->
+                <div class="bg-[#7F1D1D] text-white p-10 rounded-3xl shadow-xl">
+
+                    <form class="space-y-6">
+
+                        <!-- Name -->
+                        <div>
+                            <label class="block text-sm mb-2 text-[#FACC15]">
+                                Full Name
+                            </label>
+                            <div class="relative">
+                                <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+                                <input type="text" placeholder="Enter your name"
+                                    class="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-[#FACC15] focus:ring-2 focus:ring-[#FACC15] outline-none text-white">
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-sm mb-2 text-[#FACC15]">
+                                Email Address
+                            </label>
+                            <div class="relative">
+                                <i
+                                    class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+                                <input type="email" placeholder="Enter your email"
+                                    class="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-[#FACC15] focus:ring-2 focus:ring-[#FACC15] outline-none text-white">
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label class="block text-sm mb-2 text-[#FACC15]">
+                                Message
+                            </label>
+                            <textarea rows="4" placeholder="Write your message..."
+                                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-[#FACC15] focus:ring-2 focus:ring-[#FACC15] outline-none text-white"></textarea>
+                        </div>
+
+                        <!-- Button -->
+                        <button type="submit"
+                            class="w-full bg-[#FACC15] text-[#7F1D1D] py-3 rounded-xl font-semibold hover:bg-yellow-400 transition duration-300 shadow-lg">
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <!-- RIGHT SIDE - MAP -->
+                <div class="rounded-3xl overflow-hidden shadow-xl h-[510px]">
+
+                    <iframe src="https://www.google.com/maps?q=Bangalore,India&output=embed" width="100%" height="100%"
+                        style="border:0;" loading="lazy" allowfullscreen>
+                    </iframe>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- SECTION2 -->
+     <section class="bg-gray-50 py-20">
+<!-- Section Title -->
+<div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-[#7F1D1D] mb-4">
+        Get In Touch With Us
+    </h2>
+</div>
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+
+            <!-- Phone -->
+            <div class="card border border-white bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                <div class="w-14 h-14 mx-auto mb-4 bg-[#FACC15] text-[#7F1D1D] flex items-center justify-center rounded-full">
+                    <i class="fa-solid fa-phone text-xl"></i>
+                </div>
+                <h4 class="text-lg font-semibold text-[#7F1D1D] mb-2">Call Us</h4>
+                <p class="text-gray-600">+91 98765 43210</p>
+            </div>
+
+            <!-- Email -->
+            <div class="card border border-white bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                <div class="w-14 h-14 mx-auto mb-4 bg-[#FACC15] text-[#7F1D1D] flex items-center justify-center rounded-full">
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                </div>
+                <h4 class="text-lg font-semibold text-[#7F1D1D] mb-2">Email Us</h4>
+                <p class="text-gray-600">support@astrospirit.com</p>
+            </div>
+
+            <!-- Support -->
+            <div class="card border border-white bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                <div class="w-14 h-14 mx-auto mb-4 bg-[#FACC15] text-[#7F1D1D] flex items-center justify-center rounded-full">
+                    <i class="fa-solid fa-headset text-xl"></i>
+                </div>
+                <h4 class="text-lg font-semibold text-[#7F1D1D] mb-2">24/7 Support</h4>
+                <p class="text-gray-600">24/7</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION3 -->
+ <section class="relative bg-[#7F1D1D] py-24 text-white overflow-hidden">
+
+    <div class="relative max-w-5xl mx-auto px-6 text-center">
+
+        <!-- Title -->
+        <h2 class="text-3xl md:text-5xl font-bold text-[#FACC15] mb-6">
+            Begin Your Spiritual Journey Today
+        </h2>
+
+        <!-- Description -->
+        <p class="text-gray-200 mb-10 max-w-2xl mx-auto text-lg">
+            Book a personalized astrology or tarot consultation and receive 
+            accurate insights, guidance, and clarity for your future.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-5 justify-center">
+
+            <a href="contact.html"
+               class="bg-[#FACC15] text-[#7F1D1D] px-8 py-4 rounded-xl font-semibold 
+                      hover:bg-yellow-500 transition duration-300 shadow-lg">
+                Start Consultation
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+                    },
+                },
+            },
+        }
+    </script>
+    </script>
+    <script src="navbar.js"></script>
+    <script src="footer.js"></script>
+</body>
+
+</html>

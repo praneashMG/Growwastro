@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard-Groww Astro</title>
+    <link rel="icon" href="images/logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+
+<body class="bg-[#FFFDF5] dark:bg-[#1A0F0F] font-sans transition-all duration-300">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Overlay -->
+        <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40 lg:hidden"></div>
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 
+    bg-[#FACC15] text-[#7F1D1D]
+    flex flex-col transform -translate-x-full lg:translate-x-0 
+    transition-transform duration-300 z-50">
+
+            <!-- Logo -->
+            <div class="p-6 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-[#7F1D1D] ">
+                    <a href="index.html" class="transition">
+                        Groww Astro
+                    </a>
+                </h1>
+                <button id="closeSidebar" class="lg:hidden text-xl">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 text-sm">
+
+                <!-- Active -->
+                <a class="block px-4 py-3 rounded-xl bg-[#7F1D1D] text-white font-semibold">
+                    <i class="bi bi-speedometer2 mr-2"></i> Dashboard
+                </a>
+
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-people-fill mr-2"></i> Clients
+                </a>
+
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-calendar-check-fill mr-2"></i> Bookings
+                </a>
+
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-stars mr-2"></i> Horoscope Reports
+                </a>
+
+                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-cash-stack mr-2"></i> Payments
+                </a>
+
+                <a href="login.html" class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-box-arrow-left mr-2"></i> Logout
+                </a>
+
+            </nav>
+            <!-- Mobile Settings -->
+            <div class="lg:hidden px-4 pb-4 space-y-2">
+
+                <button id="themeBtnMobile"
+                    class="w-full flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i id="themeIconMobile" class="bi bi-moon-fill"></i>
+                    Dark / Light Mode
+                </button>
+
+                <button id="rtlBtnMobile"
+                    class="w-full flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                    <i class="bi bi-arrow-left-right"></i>
+                    RTL Mode
+                </button>
+
+            </div>
+
+            <!-- Profile -->
+            <div class="p-5 border-t border-[#7F1D1D]/20 flex items-center gap-3">
+                <img src="images/img2.webp" class="w-12 h-12 rounded-full border-2 border-[#7F1D1D]">
+
+                <div>
+                    <p class="font-semibold text-[#7F1D1D]">Admin</p>
+                    <p class="text-xs text-[#7F1D1D]/70">Astrologer</p>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <div class="flex-1 flex flex-col">
+
+            <!-- TOPBAR -->
+            <header class="bg-white dark:bg-[#2A1515] shadow px-6 py-4 flex justify-between items-center">
+
+
+                <h1 class="text-xl font-bold text-[#7F1D1D] dark:text-[#FACC15]">
+                    Admin
+                </h1>
+
+                <button id="openSidebar" class="lg:hidden text-2xl text-[#7F1D1D] dark:text-[#FACC15]">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="hidden lg:flex gap-3">
+
+                    <!-- THEME TOGGLE -->
+                    <button id="themeBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
+                        <i id="themeIconDesktop" class="bi bi-moon-fill"></i>
+                    </button>
+
+                    <!-- RTL TOGGLE -->
+                    <button id="rtlBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- CONTENT -->
+            <main class="p-3 sm:p-6 overflow-y-auto space-y-6 text-gray-800 dark:text-gray-100">
+
+                <!-- Banner -->
+                <div class="bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white p-4 sm:p-6 rounded-2xl shadow">
+                    <h2 class="text-lg sm:text-2xl font-bold">Astro Admin Control Panel</h2>
+                    <p class="text-xs sm:text-base mt-1">
+                        Manage Users • Reports • Store • Bookings • Revenue
+                    </p>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
+                        <i class="bi bi-people-fill text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h2 class="text-2xl font-bold mt-3">1,240</h2>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Total Users</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
+                        <i class="bi bi-calendar-check-fill text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h2 class="text-2xl font-bold mt-3">86</h2>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Active Bookings</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
+                        <i class="bi bi-cart-fill text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h2 class="text-2xl font-bold mt-3">320</h2>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Products Sold</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
+                        <i class="bi bi-currency-dollar text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h2 class="text-2xl font-bold mt-3">$28,450</h2>
+                        <p class="text-xs text-gray-500 dark:text-gray-300">Monthly Revenue</p>
+                    </div>
+
+                </div>
+
+                <!-- Recent Booking (Mobile Card Style) -->
+                <div class="bg-white dark:bg-[#2A1515] p-4 sm:p-6 rounded-2xl shadow">
+                    <h2 class="text-base font-bold mb-4">Recent Booking Requests</h2>
+
+                    <div class="space-y-4">
+
+                        <div class="p-4 border rounded-xl bg-gray-50 dark:bg-[#1f1f1f] space-y-2">
+                            <p><span class="font-semibold">User:</span> Aisha Khan</p>
+                            <p><span class="font-semibold">Service:</span> Birth Chart Reading</p>
+                            <p><span class="font-semibold">Date:</span> 10 Mar 2026</p>
+                            <p class="text-green-600 font-semibold">Paid</p>
+                            <div class="flex gap-2 pt-2">
+                                <button class="flex-1 bg-green-600 text-white py-2 rounded text-xs">Approve</button>
+                                <button class="flex-1 bg-red-600 text-white py-2 rounded text-xs">Reject</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Store Products -->
+                <div class="bg-white dark:bg-[#2A1515] p-4 sm:p-6 rounded-2xl shadow">
+                    <div class="flex flex-col sm:flex-row justify-between gap-3 mb-5">
+                        <h2 class="text-base font-bold">Store Products</h2>
+                        <button class="bg-[#7F1D1D] text-white px-4 py-2 rounded-lg text-sm w-full sm:w-auto">
+                            + Add Product
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
+                            <h3 class="font-semibold">Wealth Spell Kit</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">Price: $29</p>
+                            <div class="mt-4 flex gap-2">
+                                <button class="flex-1 bg-blue-600 text-white py-2 rounded text-xs">Edit</button>
+                                <button class="flex-1 bg-red-600 text-white py-2 rounded text-xs">Delete</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Revenue Analytics & Quick Actions -->
+                <div class="bg-white dark:bg-[#2A1515] p-4 sm:p-6 rounded-2xl shadow space-y-6">
+
+                    <h2 class="text-base font-bold">Revenue Overview</h2>
+
+                    <!-- Revenue Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                        <div class="p-4 rounded-xl bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white">
+                            <p class="text-sm">This Month Revenue</p>
+                            <h3 class="text-2xl font-bold mt-2">$28,450</h3>
+                            <p class="text-xs mt-1">+12% from last month</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl border dark:border-gray-700">
+                            <p class="text-sm text-gray-500 dark:text-gray-300">Target Achievement</p>
+
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mt-3">
+                                <div class="bg-[#7F1D1D] h-3 rounded-full" style="width: 75%"></div>
+                            </div>
+
+                            <p class="text-xs mt-2">75% of $40,000 target</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div>
+                        <h3 class="text-sm font-semibold mb-3">Quick Actions</h3>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+                            <button
+                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                Add Report
+                            </button>
+
+                            <button
+                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                New Booking
+                            </button>
+
+                            <button
+                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                Add Product
+                            </button>
+
+                            <button
+                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
+                                View Payments
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+
+    </div>
+
+    <script>
+
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const openBtn = document.getElementById("openSidebar");
+        const closeBtn = document.getElementById("closeSidebar");
+
+        openBtn.onclick = () => {
+            sidebar.classList.remove("-translate-x-full");
+            overlay.classList.remove("hidden");
+        };
+
+        closeBtn.onclick = () => {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        };
+
+        overlay.onclick = () => {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        };
+
+        function toggleTheme() {
+    document.documentElement.classList.toggle("dark");
+
+    const isDark = document.documentElement.classList.contains("dark");
+
+    document.getElementById("themeIconDesktop").className =
+        isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+
+    document.getElementById("themeIconMobile").className =
+        isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+}
+
+document.getElementById("themeBtnDesktop").onclick = toggleTheme;
+document.getElementById("themeBtnMobile").onclick = toggleTheme;
+
+
+// RTL
+function toggleRTL() {
+    document.documentElement.dir =
+        document.documentElement.dir === "rtl" ? "ltr" : "rtl";
+}
+
+document.getElementById("rtlBtnDesktop").onclick = toggleRTL;
+document.getElementById("rtlBtnMobile").onclick = toggleRTL;
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+                    },
+                },
+            },
+        }
+
+    </script>
+
+</body>
+
+</html>
