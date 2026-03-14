@@ -4,74 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard-Groww Astro</title>
+    <title>Admin Dashboard-Astroly</title>
     <link rel="icon" href="images/logo.jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
     <script>
         tailwind.config = { darkMode: 'class' }
     </script>
+    <style>
+        .page-content { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .hidden { display: none; }
+    </style>
 </head>
 
 <body class="bg-[#FFFDF5] dark:bg-[#1A0F0F] font-sans transition-all duration-300">
 
     <div class="flex h-screen overflow-hidden">
 
-        <!-- Overlay -->
         <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40 lg:hidden"></div>
 
-        <!-- SIDEBAR -->
-        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 
-    bg-[#FACC15] text-[#7F1D1D]
-    flex flex-col transform -translate-x-full lg:translate-x-0 
-    transition-transform duration-300 z-50">
-
-            <!-- Logo -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 bg-[#FACC15] text-[#7F1D1D] flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50">
             <div class="p-6 flex justify-between items-center">
                 <h1 class="text-2xl font-bold text-[#7F1D1D] ">
-                    <a href="index.html" class="transition">
-                        Groww Astro
-                    </a>
+                    <a href="index.html" class="transition">Astroly</a>
                 </h1>
-                <button id="closeSidebar" class="lg:hidden text-xl">
-                    <i class="bi bi-x-lg"></i>
-                </button>
+                <button id="closeSidebar" class="lg:hidden text-xl"><i class="bi bi-x-lg"></i></button>
             </div>
 
-            <!-- Navigation -->
             <nav class="flex-1 p-4 space-y-2 text-sm">
-
-                <!-- Active -->
-                <a class="block px-4 py-3 rounded-xl bg-[#7F1D1D] text-white font-semibold">
+                <a href="#" onclick="showPage('dashboard')" class="nav-link block px-4 py-3 rounded-xl bg-[#7F1D1D] text-white font-semibold cursor-pointer">
                     <i class="bi bi-speedometer2 mr-2"></i> Dashboard
                 </a>
-
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                <a href="#" onclick="showPage('clients')" class="nav-link block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition cursor-pointer">
                     <i class="bi bi-people-fill mr-2"></i> Clients
                 </a>
-
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                <a href="#" onclick="showPage('bookings')" class="nav-link block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition cursor-pointer">
                     <i class="bi bi-calendar-check-fill mr-2"></i> Bookings
                 </a>
-
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                <a href="#" onclick="showPage('reports')" class="nav-link block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition cursor-pointer">
                     <i class="bi bi-stars mr-2"></i> Horoscope Reports
                 </a>
-
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                <a href="#" onclick="showPage('payments')" class="nav-link block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition cursor-pointer">
                     <i class="bi bi-cash-stack mr-2"></i> Payments
                 </a>
-
                 <a href="login.html" class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
                     <i class="bi bi-box-arrow-left mr-2"></i> Logout
                 </a>
-
             </nav>
-            <!-- Mobile Settings -->
+             <!-- Mobile Settings -->
             <div class="lg:hidden px-4 pb-4 space-y-2">
 
                 <button id="themeBtnMobile"
@@ -88,242 +70,364 @@
 
             </div>
 
-            <!-- Profile -->
             <div class="p-5 border-t border-[#7F1D1D]/20 flex items-center gap-3">
                 <img src="images/img2.webp" class="w-12 h-12 rounded-full border-2 border-[#7F1D1D]">
-
                 <div>
                     <p class="font-semibold text-[#7F1D1D]">Admin</p>
                     <p class="text-xs text-[#7F1D1D]/70">Astrologer</p>
                 </div>
             </div>
-
         </aside>
 
-        <!-- MAIN -->
         <div class="flex-1 flex flex-col">
 
-            <!-- TOPBAR -->
             <header class="bg-white dark:bg-[#2A1515] shadow px-6 py-4 flex justify-between items-center">
-
-
-                <h1 class="text-xl font-bold text-[#7F1D1D] dark:text-[#FACC15]">
-                    Admin
-                </h1>
-
-                <button id="openSidebar" class="lg:hidden text-2xl text-[#7F1D1D] dark:text-[#FACC15]">
-                    <i class="bi bi-list"></i>
-                </button>
-
+                <h1 id="headerTitle" class="text-xl font-bold text-[#7F1D1D] dark:text-[#FACC15]">Admin Dashboard</h1>
+                <button id="openSidebar" class="lg:hidden text-2xl text-[#7F1D1D] dark:text-[#FACC15]"><i class="bi bi-list"></i></button>
                 <div class="hidden lg:flex gap-3">
-
-                    <!-- THEME TOGGLE -->
                     <button id="themeBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
                         <i id="themeIconDesktop" class="bi bi-moon-fill"></i>
                     </button>
-
-                    <!-- RTL TOGGLE -->
-                    <button id="rtlBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
-                        <i class="bi bi-arrow-left-right"></i>
-                    </button>
-
+                    <button id="rtlBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]"><i class="bi bi-arrow-left-right"></i></button>
                 </div>
-
             </header>
 
-            <!-- CONTENT -->
             <main class="p-3 sm:p-6 overflow-y-auto space-y-6 text-gray-800 dark:text-gray-100">
 
-                <!-- Banner -->
-                <div class="bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white p-4 sm:p-6 rounded-2xl shadow">
-                    <h2 class="text-lg sm:text-2xl font-bold">Astro Admin Control Panel</h2>
-                    <p class="text-xs sm:text-base mt-1">
-                        Manage Users • Reports • Store • Bookings • Revenue
-                    </p>
+                <div id="page-dashboard" class="page-content space-y-6">
+    
+    <div class="bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white p-6 sm:p-10 rounded-3xl shadow-lg relative overflow-hidden">
+        <div class="relative z-10">
+            <h2 class="text-2xl sm:text-4xl font-bold">Astro Command Center</h2>
+            <p class="text-sm sm:text-lg opacity-90 mt-2 max-w-xl">
+                You have <span class="font-bold underline">12 new messages</span> and <span class="font-bold underline">4 reports</span> waiting for approval today.
+            </p>
+            <div class="mt-6 flex gap-3">
+                <button class="bg-white text-[#7F1D1D] px-4 py-2 rounded-xl text-xs font-bold shadow-sm">View Reports</button>
+                <button class="bg-[#7F1D1D]/20 backdrop-blur-md border border-white/30 text-white px-4 py-2 rounded-xl text-xs font-bold">System Logs</button>
+            </div>
+        </div>
+        <i class="bi bi-stars absolute right-[-20px] top-[-20px] text-white/10 text-[200px] rotate-12"></i>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow hover:border-[#7F1D1D] border-transparent border-2 transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h2 class="text-3xl font-bold">1,240</h2>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Total Users</p>
                 </div>
-
-                <!-- Stats -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
-                        <i class="bi bi-people-fill text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h2 class="text-2xl font-bold mt-3">1,240</h2>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Total Users</p>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
-                        <i class="bi bi-calendar-check-fill text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h2 class="text-2xl font-bold mt-3">86</h2>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Active Bookings</p>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
-                        <i class="bi bi-cart-fill text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h2 class="text-2xl font-bold mt-3">320</h2>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Products Sold</p>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow sm:hover:scale-105 transition">
-                        <i class="bi bi-currency-dollar text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h2 class="text-2xl font-bold mt-3">$28,450</h2>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Monthly Revenue</p>
-                    </div>
-
+                <span class="bg-green-100 text-green-700 text-[10px] px-2 py-1 rounded-full">+14%</span>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow hover:border-[#FACC15] border-transparent border-2 transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h2 class="text-3xl font-bold">86</h2>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Active Bookings</p>
                 </div>
-
-                <!-- Recent Booking (Mobile Card Style) -->
-                <div class="bg-white dark:bg-[#2A1515] p-4 sm:p-6 rounded-2xl shadow">
-                    <h2 class="text-base font-bold mb-4">Recent Booking Requests</h2>
-
-                    <div class="space-y-4">
-
-                        <div class="p-4 border rounded-xl bg-gray-50 dark:bg-[#1f1f1f] space-y-2">
-                            <p><span class="font-semibold">User:</span> Aisha Khan</p>
-                            <p><span class="font-semibold">Service:</span> Birth Chart Reading</p>
-                            <p><span class="font-semibold">Date:</span> 10 Mar 2026</p>
-                            <p class="text-green-600 font-semibold">Paid</p>
-                            <div class="flex gap-2 pt-2">
-                                <button class="flex-1 bg-green-600 text-white py-2 rounded text-xs">Approve</button>
-                                <button class="flex-1 bg-red-600 text-white py-2 rounded text-xs">Reject</button>
-                            </div>
-                        </div>
-
-                    </div>
+                <span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-1 rounded-full">Busy</span>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow hover:border-[#7F1D1D] border-transparent border-2 transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h2 class="text-3xl font-bold">320</h2>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Store Orders</p>
                 </div>
-
-                <!-- Store Products -->
-                <div class="bg-white dark:bg-[#2A1515] p-4 sm:p-6 rounded-2xl shadow">
-                    <div class="flex flex-col sm:flex-row justify-between gap-3 mb-5">
-                        <h2 class="text-base font-bold">Store Products</h2>
-                        <button class="bg-[#7F1D1D] text-white px-4 py-2 rounded-lg text-sm w-full sm:w-auto">
-                            + Add Product
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
-                            <h3 class="font-semibold">Wealth Spell Kit</h3>
-                            <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">Price: $29</p>
-                            <div class="mt-4 flex gap-2">
-                                <button class="flex-1 bg-blue-600 text-white py-2 rounded text-xs">Edit</button>
-                                <button class="flex-1 bg-red-600 text-white py-2 rounded text-xs">Delete</button>
-                            </div>
-                        </div>
-
-                    </div>
-
+                <span class="bg-orange-100 text-orange-700 text-[10px] px-2 py-1 rounded-full">Trending</span>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow hover:border-[#FACC15] border-transparent border-2 transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h2 class="text-3xl font-bold">$28,450</h2>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Net Revenue</p>
                 </div>
-                <!-- Revenue Analytics & Quick Actions -->
-                <div class="bg-white dark:bg-[#2A1515] p-4 sm:p-6 rounded-2xl shadow space-y-6">
+                <span class="bg-green-100 text-green-700 text-[10px] px-2 py-1 rounded-full">+8%</span>
+            </div>
+        </div>
+    </div>
 
-                    <h2 class="text-base font-bold">Revenue Overview</h2>
-
-                    <!-- Revenue Stats -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                        <div class="p-4 rounded-xl bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white">
-                            <p class="text-sm">This Month Revenue</p>
-                            <h3 class="text-2xl font-bold mt-2">$28,450</h3>
-                            <p class="text-xs mt-1">+12% from last month</p>
-                        </div>
-
-                        <div class="p-4 rounded-xl border dark:border-gray-700">
-                            <p class="text-sm text-gray-500 dark:text-gray-300">Target Achievement</p>
-
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mt-3">
-                                <div class="bg-[#7F1D1D] h-3 rounded-full" style="width: 75%"></div>
-                            </div>
-
-                            <p class="text-xs mt-2">75% of $40,000 target</p>
-                        </div>
-
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="lg:col-span-2 bg-white dark:bg-[#2A1515] p-6 rounded-3xl shadow">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-bold text-lg">Live Appointments</h3>
+                <span class="flex items-center gap-2 text-xs text-green-500 font-bold">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    Live Now
+                </span>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 p-4 border dark:border-gray-700 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition">
+                    <div class="w-12 h-12 bg-[#FACC15] rounded-full flex items-center justify-center font-bold text-[#7F1D1D]">RM</div>
+                    <div class="flex-1">
+                        <p class="font-bold text-sm">Rohan Mehra</p>
+                        <p class="text-xs text-gray-500">Palm Reading • Started 10m ago</p>
                     </div>
+                    <button class="bg-[#7F1D1D] text-white px-3 py-1.5 rounded-lg text-xs">Monitor</button>
+                </div>
+                <div class="flex items-center gap-4 p-4 border dark:border-gray-700 rounded-2xl opacity-60">
+                    <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">SJ</div>
+                    <div class="flex-1">
+                        <p class="font-bold text-sm">Sonia Jain</p>
+                        <p class="text-xs text-gray-500">Vastu Consultation • Next in 15m</p>
+                    </div>
+                    <button class="bg-gray-200 text-gray-500 px-3 py-1.5 rounded-lg text-xs">Wait</button>
+                </div>
+            </div>
+        </div>
 
-                    <!-- Quick Actions -->
+        <div class="bg-white dark:bg-[#2A1515] p-6 rounded-3xl shadow">
+            <h3 class="font-bold text-lg mb-6">Daily Traffic</h3>
+            <div class="flex items-end justify-around h-32 gap-2">
+                <div class="bg-[#7F1D1D] w-full rounded-t-lg" style="height: 40%"></div>
+                <div class="bg-[#FACC15] w-full rounded-t-lg" style="height: 70%"></div>
+                <div class="bg-[#7F1D1D] w-full rounded-t-lg" style="height: 50%"></div>
+                <div class="bg-[#FACC15] w-full rounded-t-lg" style="height: 90%"></div>
+                <div class="bg-[#7F1D1D] w-full rounded-t-lg" style="height: 60%"></div>
+            </div>
+            <div class="flex justify-between mt-4 text-[10px] font-bold text-gray-400 uppercase">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
+            </div>
+            <div class="mt-6 pt-6 border-t dark:border-gray-700">
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-500">Peak Time:</span>
+                    <span class="font-bold text-[#7F1D1D]">9:00 PM - 11:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-[#2A1515] p-6 rounded-3xl shadow">
+        <h3 class="font-bold text-lg mb-4 text-[#7F1D1D] dark:text-[#FACC15]">System Notifications</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-3 bg-orange-50 dark:bg-orange-900/10 rounded-xl border-l-4 border-orange-500">
+                <i class="bi bi-exclamation-triangle-fill text-orange-500 mt-1"></i>
+                <div>
+                    <p class="text-sm font-bold">API Latency High</p>
+                    <p class="text-xs text-gray-500">The Horoscope generator API is taking longer than usual (2.4s).</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/10 rounded-xl border-l-4 border-green-500">
+                <i class="bi bi-check-circle-fill text-green-500 mt-1"></i>
+                <div>
+                    <p class="text-sm font-bold">Daily Backup Success</p>
+                    <p class="text-xs text-gray-500">All user data and chat logs were backed up at 03:00 AM.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+                <div id="page-clients" class="page-content hidden space-y-6">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h2 class="text-xl font-bold text-[#7F1D1D] dark:text-[#FACC15]">User Management</h2>
+        <button class="w-full sm:w-auto bg-[#7F1D1D] text-white px-4 py-2 rounded-xl text-sm font-semibold shadow-md active:scale-95 transition">
+            <i class="bi bi-plus-lg mr-1"></i> Add New User
+        </button>
+    </div>
+
+    <div class="hidden md:block bg-white dark:bg-[#2A1515] rounded-2xl shadow overflow-hidden border dark:border-white/5">
+        <table class="w-full text-left text-sm">
+            <thead class="bg-gray-50 dark:bg-[#1A0F0F] font-bold text-[#7F1D1D] dark:text-[#FACC15]">
+                <tr>
+                    <th class="p-4">Name</th>
+                    <th class="p-4">Zodiac</th>
+                    <th class="p-4">Total Spent</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y dark:divide-gray-800">
+                <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition">
+                    <td class="p-4 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-[#7F1D1D] text-white flex items-center justify-center font-bold text-xs">AK</div>
+                        <span class="font-medium">Aisha Khan</span>
+                    </td>
+                    <td class="p-4">Leo</td>
+                    <td class="p-4 font-bold">$1,200</td>
+                    <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-md text-[10px] font-bold">ACTIVE</span></td>
+                    <td class="p-4 text-center text-[#7F1D1D] dark:text-[#FACC15]"><i class="bi bi-pencil-square cursor-pointer"></i></td>
+                </tr>
+                <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition">
+                    <td class="p-4 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-[#FACC15] text-[#7F1D1D] flex items-center justify-center font-bold text-xs">RB</div>
+                        <span class="font-medium">Rahul Bisht</span>
+                    </td>
+                    <td class="p-4">Taurus</td>
+                    <td class="p-4 font-bold">$450</td>
+                    <td class="p-4"><span class="bg-gray-100 text-gray-500 px-2 py-1 rounded-md text-[10px] font-bold">IDLE</span></td>
+                    <td class="p-4 text-center text-[#7F1D1D] dark:text-[#FACC15]"><i class="bi bi-pencil-square cursor-pointer"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="md:hidden space-y-4">
+        <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow border-l-4 border-[#7F1D1D]">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#7F1D1D] text-white flex items-center justify-center font-bold">AK</div>
                     <div>
-                        <h3 class="text-sm font-semibold mb-3">Quick Actions</h3>
+                        <p class="font-bold text-sm">Aisha Khan</p>
+                        <p class="text-[10px] text-gray-500">Zodiac: Leo</p>
+                    </div>
+                </div>
+                <span class="bg-green-100 text-green-700 px-2 py-1 rounded-md text-[10px] font-bold">ACTIVE</span>
+            </div>
+            <div class="flex justify-between items-center pt-3 border-t dark:border-gray-800">
+                <p class="text-sm font-bold text-[#7F1D1D] dark:text-[#FACC15]">$1,200 Spent</p>
+                <button class="text-[#7F1D1D] dark:text-[#FACC15] flex items-center gap-1 text-xs font-bold">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </button>
+            </div>
+        </div>
 
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow border-l-4 border-[#FACC15]">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#FACC15] text-[#7F1D1D] flex items-center justify-center font-bold">RB</div>
+                    <div>
+                        <p class="font-bold text-sm">Rahul Bisht</p>
+                        <p class="text-[10px] text-gray-500">Zodiac: Taurus</p>
+                    </div>
+                </div>
+                <span class="bg-gray-100 text-gray-500 px-2 py-1 rounded-md text-[10px] font-bold">IDLE</span>
+            </div>
+            <div class="flex justify-between items-center pt-3 border-t dark:border-gray-800">
+                <p class="text-sm font-bold text-[#7F1D1D] dark:text-[#FACC15]">$450 Spent</p>
+                <button class="text-[#7F1D1D] dark:text-[#FACC15] flex items-center gap-1 text-xs font-bold">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
-                            <button
-                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                Add Report
-                            </button>
-
-                            <button
-                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                New Booking
-                            </button>
-
-                            <button
-                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                Add Product
-                            </button>
-
-                            <button
-                                class="bg-[#7F1D1D] text-white py-3 rounded-xl text-xs sm:text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                View Payments
-                            </button>
-
+                <div id="page-bookings" class="page-content hidden space-y-6">
+                    <h2 class="text-xl font-bold">Upcoming Consultations</h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-[#2A1515] p-5 rounded-2xl shadow flex justify-between items-center border-l-8 border-[#FACC15]">
+                            <div>
+                                <h4 class="font-bold">Kundli Matching Session</h4>
+                                <p class="text-xs text-gray-500">Client: Vikram & Priya • 04:00 PM Today</p>
+                            </div>
+                            <button class="bg-[#7F1D1D] text-white p-3 rounded-full"><i class="bi bi-camera-video"></i></button>
+                        </div>
+                        <div class="bg-white dark:bg-[#2A1515] p-5 rounded-2xl shadow flex justify-between items-center border-l-8 border-[#7F1D1D]">
+                            <div>
+                                <h4 class="font-bold">Career Growth Reading</h4>
+                                <p class="text-xs text-gray-500">Client: S. Verma • 10:00 AM Tomorrow</p>
+                            </div>
+                            <button class="bg-[#7F1D1D] text-white p-3 rounded-full"><i class="bi bi-telephone"></i></button>
                         </div>
                     </div>
+                </div>
 
+                <div id="page-reports" class="page-content hidden space-y-6">
+                    <div class="bg-white dark:bg-[#2A1515] p-10 rounded-2xl border-4 border-dashed border-gray-100 dark:border-gray-800 text-center">
+                        <i class="bi bi-file-earmark-pdf text-5xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                        <h3 class="text-xl font-bold mt-4">Generate New Horoscope Report</h3>
+                        <p class="text-sm text-gray-400 mt-2">Upload data to auto-generate PDF for client</p>
+                        <button class="mt-6 bg-[#7F1D1D] text-white px-8 py-3 rounded-xl">Launch Generator</button>
+                    </div>
+                </div>
+
+                <div id="page-payments" class="page-content hidden space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-[#7F1D1D] text-white p-8 rounded-3xl">
+                            <p class="text-sm opacity-80">Net Profit (Last 30 Days)</p>
+                            <h2 class="text-4xl font-bold mt-2">$14,230.00</h2>
+                            <div class="mt-6 flex gap-2">
+                                <button class="bg-white text-[#7F1D1D] px-4 py-2 rounded-lg text-xs font-bold">Download Statement</button>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-[#2A1515] p-8 rounded-3xl shadow">
+                            <h4 class="font-bold mb-4">Revenue by Service</h4>
+                            <div class="space-y-4">
+                                <div><div class="flex justify-between text-xs mb-1"><span>Birth Charts</span><span>70%</span></div>
+                                <div class="w-full bg-gray-100 dark:bg-gray-800 h-2 rounded-full overflow-hidden"><div class="bg-[#7F1D1D] h-full w-[70%]"></div></div></div>
+                                <div><div class="flex justify-between text-xs mb-1"><span>Store Products</span><span>30%</span></div>
+                                <div class="w-full bg-gray-100 dark:bg-gray-800 h-2 rounded-full overflow-hidden"><div class="bg-[#FACC15] h-full w-[30%]"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </main>
         </div>
-
     </div>
 
     <script>
-
         const sidebar = document.getElementById("sidebar");
         const overlay = document.getElementById("overlay");
         const openBtn = document.getElementById("openSidebar");
         const closeBtn = document.getElementById("closeSidebar");
+        const headerTitle = document.getElementById("headerTitle");
 
-        openBtn.onclick = () => {
-            sidebar.classList.remove("-translate-x-full");
-            overlay.classList.remove("hidden");
+        const pageTitles = {
+            'dashboard': 'Admin Dashboard',
+            'clients': 'Client Management',
+            'bookings': 'Session Bookings',
+            'reports': 'Astrology Reports',
+            'payments': 'Revenue Analytics'
         };
 
-        closeBtn.onclick = () => {
-            sidebar.classList.add("-translate-x-full");
-            overlay.classList.add("hidden");
-        };
+        function showPage(pageId) {
+            // 1. Hide all pages
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            // 2. Show the active one
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+            // 3. Update Title
+            headerTitle.innerText = pageTitles[pageId];
 
-        overlay.onclick = () => {
-            sidebar.classList.add("-translate-x-full");
-            overlay.classList.add("hidden");
-        };
+            // 4. Update Navigation UI
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('bg-[#7F1D1D]', 'text-white', 'font-semibold');
+                link.classList.add('hover:bg-[#7F1D1D]', 'hover:text-white');
+            });
+            event.currentTarget.classList.add('bg-[#7F1D1D]', 'text-white', 'font-semibold');
+            event.currentTarget.classList.remove('hover:bg-[#7F1D1D]', 'hover:text-white');
+
+            // 5. Close sidebar on mobile
+            if (window.innerWidth < 1024) {
+                sidebar.classList.add("-translate-x-full");
+                overlay.classList.add("hidden");
+            }
+        }
+
+        // Original Toggle Scripts
+        openBtn.onclick = () => { sidebar.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); };
+        closeBtn.onclick = () => { sidebar.classList.add("-translate-x-full"); overlay.classList.add("hidden"); };
+        overlay.onclick = () => { sidebar.classList.add("-translate-x-full"); overlay.classList.add("hidden"); };
 
         function toggleTheme() {
-    document.documentElement.classList.toggle("dark");
+            document.documentElement.classList.toggle("dark");
+            const isDark = document.documentElement.classList.contains("dark");
+            document.getElementById("themeIconDesktop").className = isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+            document.getElementById("themeIconMobile").className = isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+        }
 
-    const isDark = document.documentElement.classList.contains("dark");
+        document.getElementById("themeBtnDesktop").onclick = toggleTheme;
+        document.getElementById("themeBtnMobile").onclick = toggleTheme;
 
-    document.getElementById("themeIconDesktop").className =
-        isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+        // RTL Toggle Logic (FIXED)
+    function toggleRTL() {
+        document.documentElement.dir = document.documentElement.dir === "rtl" ? "ltr" : "rtl";
+    }
 
-    document.getElementById("themeIconMobile").className =
-        isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
-}
+    // ADD THESE LINES TO FIX YOUR RTL BUTTONS
+    document.getElementById("rtlBtnDesktop").onclick = toggleRTL;
+    document.getElementById("rtlBtnMobile").onclick = toggleRTL;
 
-document.getElementById("themeBtnDesktop").onclick = toggleTheme;
-document.getElementById("themeBtnMobile").onclick = toggleTheme;
-
-
-// RTL
-function toggleRTL() {
-    document.documentElement.dir =
-        document.documentElement.dir === "rtl" ? "ltr" : "rtl";
-}
-
-document.getElementById("rtlBtnDesktop").onclick = toggleRTL;
-document.getElementById("rtlBtnMobile").onclick = toggleRTL;
-
-        tailwind.config = {
+    tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
@@ -333,9 +437,6 @@ document.getElementById("rtlBtnMobile").onclick = toggleRTL;
                 },
             },
         }
-
     </script>
-
 </body>
-
 </html>

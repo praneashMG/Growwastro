@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard-Groww Astro</title>
+    <title>User Dashboard-Astroly</title>
     <link rel="icon" href="images/logo.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -15,73 +15,76 @@
     <script>
         tailwind.config = { darkMode: 'class' }
     </script>
+    <style>
+        /* Only force white text in the MAIN content area during Dark Mode */
+        /* This prevents the Sidebar and Topbar from changing their text color */
+        .dark main, 
+        .dark main p, 
+        .dark main h1, 
+        .dark main h2, 
+        .dark main h3, 
+        .dark main h4, 
+        .dark main span, 
+        .dark main label,
+        .dark main i:not(.nav-link i) {
+            color: #ffffff !important;
+        }
+
+        /* Specific fix for the Top Bar Title to keep its color in Dark Mode */
+        .dark #page-title {
+            color: #FACC15 !important;
+        }
+
+        /* Ensure Sidebar text stays Maroon even in Dark Mode */
+        .dark aside, .dark aside * {
+            color: #7F1D1D !important;
+        }
+        
+        /* Exception for active/hovered sidebar links which have white text */
+        .dark .nav-link.bg-\[\#7F1D1D\], .dark .nav-link:hover {
+            color: #ffffff !important;
+        }
+        .dark .nav-link.bg-\[\#7F1D1D\] i, .dark .nav-link:hover i {
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 
-<body class="bg-[#FFFDF5] dark:bg-[#1A0F0F] font-sans transition-all duration-300 font-sans">
+<body class="bg-[#FFFDF5] dark:bg-[#1A0F0F] font-sans transition-all duration-300">
 
     <div class="flex h-screen overflow-hidden">
 
-        <!-- Overlay -->
         <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40 lg:hidden"></div>
 
-        <!-- SIDEBAR -->
-        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 
-    bg-[#FACC15] text-[#7F1D1D]
-    flex flex-col transform -translate-x-full lg:translate-x-0 
-    transition-transform duration-300 z-50">
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 w-72 bg-[#FACC15] text-[#7F1D1D] flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50">
 
-            <!-- Logo -->
             <div class="p-6 flex justify-between items-center">
                 <h1 class="text-2xl font-bold text-[#7F1D1D] ">
                     <a href="index.html" class="transition">
-                        Groww Astro
+                        Astroly
                     </a>
                 </h1>
-                <button id="closeSidebar" class="lg:hidden text-xl">
-                    <i class="bi bi-x-lg"></i>
-                </button>
+                <button id="closeSidebar" class="lg:hidden text-xl"><i class="bi bi-x-lg"></i></button>
             </div>
 
-            <!-- Navigation -->
             <nav class="flex-1 p-4 space-y-2 text-sm">
-
-                <!-- Dashboard -->
-                <a class="block px-4 py-3 rounded-xl bg-[#7F1D1D] text-white font-semibold">
+                <a href="#" onclick="showSection('dashboard')" class="nav-link block px-4 py-3 rounded-xl bg-[#7F1D1D] text-white font-semibold">
                     <i class="bi bi-speedometer2 mr-2"></i> My Dashboard
                 </a>
-
-                <!-- Birth Chart -->
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                <a href="#" onclick="showSection('birth-chart')" class="nav-link block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
                     <i class="bi bi-stars mr-2"></i> My Birth Chart
                 </a>
-
-                <!-- Daily Horoscope -->
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                <a href="#" onclick="showSection('horoscope')" class="nav-link block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
                     <i class="bi bi-moon-stars mr-2"></i> Daily Horoscope
                 </a>
-
-                <!-- Book Reading -->
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
-                    <i class="bi bi-calendar-check mr-2"></i> Book a Reading
-                </a>
-
-                <!-- Saved Predictions -->
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
-                    <i class="bi bi-bookmark-heart mr-2"></i> Saved Predictions
-                </a>
-
-                <!-- Profile Settings -->
-                <a class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
+                <a href="#" onclick="showSection('settings')" class="nav-link block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
                     <i class="bi bi-gear mr-2"></i> Profile Settings
                 </a>
-
-                <!-- Logout -->
                 <a href="login.html" class="block px-4 py-3 rounded-xl hover:bg-[#7F1D1D] hover:text-white transition">
                     <i class="bi bi-box-arrow-left mr-2"></i> Logout
                 </a>
-
             </nav>
-            <!-- Mobile Settings -->
+             <!-- Mobile Settings -->
             <div class="lg:hidden px-4 pb-4 space-y-2">
 
                 <button id="themeBtnMobile"
@@ -98,207 +101,316 @@
 
             </div>
 
-            <!-- Profile -->
             <div class="p-5 border-t border-[#7F1D1D]/20 flex items-center gap-3">
                 <img src="images/client1.avif" class="w-12 h-12 rounded-full border-2 border-[#7F1D1D]">
-
                 <div>
-                    <p class="font-semibold text-[#7F1D1D]">User</p>
-                    <p class="text-xs text-[#7F1D1D]/70">Aisha</p>
+                    <p class="font-semibold text-[#7F1D1D]">Aisha</p>
+                    <p class="text-xs text-[#7F1D1D]/70">Premium Member</p>
                 </div>
             </div>
-
         </aside>
 
-        <!-- MAIN -->
         <div class="flex-1 flex flex-col">
-
-            <!-- TOPBAR -->
             <header class="bg-white dark:bg-[#2A1515] shadow px-6 py-4 flex justify-between items-center">
-
-                <h1 class="text-xl font-bold text-[#7F1D1D] dark:text-[#FACC15]">
-                    User
-                </h1>
-
-                <button id="openSidebar" class="lg:hidden text-2xl text-[#7F1D1D] dark:text-[#FACC15]">
-                    <i class="bi bi-list"></i>
-                </button>
-
+                <h1 id="page-title" class="text-xl font-bold text-[#7F1D1D] dark:text-[#FACC15]">My Dashboard</h1>
+                <button id="openSidebar" class="lg:hidden text-2xl text-[#7F1D1D] dark:text-[#FACC15]"><i class="bi bi-list"></i></button>
+                
                 <div class="hidden lg:flex gap-3">
-
-                    <!-- THEME TOGGLE -->
-                    <button id="themeBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
-                        <i id="themeIconDesktop" class="bi bi-moon-fill"></i>
-                    </button>
-
-                    <!-- RTL TOGGLE -->
-                    <button id="rtlBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]">
-                        <i class="bi bi-arrow-left-right"></i>
-                    </button>
-
+                    <button id="themeBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]"><i id="themeIconDesktop" class="bi bi-moon-fill"></i></button>
+                    <button id="rtlBtnDesktop" class="px-3 py-2 rounded-lg border text-[#7F1D1D] dark:text-[#FACC15]"><i class="bi bi-arrow-left-right"></i></button>
                 </div>
             </header>
 
-            <!-- CONTENT -->
-            <main class="p-3 sm:p-6 overflow-y-auto space-y-6 text-gray-800 dark:text-gray-100">
+            <main class="p-4 sm:p-6 overflow-y-auto">
 
-                <!-- Welcome Banner -->
-                <div class="bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white p-5 sm:p-6 rounded-2xl shadow">
-                    <h2 class="text-lg sm:text-2xl font-bold">Welcome Back, Aisha</h2>
-                    <p class="text-xs sm:text-base mt-2">
-                        Your cosmic journey continues. Check today’s horoscope and upcoming readings.
-                    </p>
+    <div id="section-dashboard" class="content-section space-y-6">
+        <div class="bg-gradient-to-r from-[#7F1D1D] to-[#FACC15] text-white p-8 rounded-3xl shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <h2 class="text-3xl font-bold italic">The stars align for you, Aisha.</h2>
+                <p class="mt-2 text-white/90 max-w-lg">Today, Jupiter forms a trine with your natal Sun, suggesting a massive surge in creative energy. It's a prime day for financial decisions.</p>
+                <div class="mt-4 flex gap-3">
+                    <span class="bg-white/20 px-3 py-1 rounded-full text-xs backdrop-blur-md">Luck: 92%</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full text-xs backdrop-blur-md">Mood: Radiant</span>
                 </div>
-
-                <!-- Quick Cosmic Stats -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
-                        <i class="bi bi-stars text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h3 class="text-lg font-bold mt-2">Leo ♌</h3>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Your Zodiac Sign</p>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
-                        <i class="bi bi-calendar-check text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h3 class="text-lg font-bold mt-2">2</h3>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Upcoming Readings</p>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
-                        <i class="bi bi-journal-text text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h3 class="text-lg font-bold mt-2">5</h3>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Saved Reports</p>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#2A1515] p-4 rounded-2xl shadow">
-                        <i class="bi bi-bag-check text-xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
-                        <h3 class="text-lg font-bold mt-2">3</h3>
-                        <p class="text-xs text-gray-500 dark:text-gray-300">Purchased Kits</p>
-                    </div>
-
-                </div>
-
-                <!-- Daily Horoscope -->
-                <div class="bg-white dark:bg-[#2A1515] p-5 sm:p-6 rounded-2xl shadow">
-                    <h2 class="text-base font-bold mb-4"> Today’s Horoscope</h2>
-                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                        Today is a powerful day for self-reflection and growth. Trust your intuition.
-                        A financial opportunity may arise — stay open to unexpected blessings.
-                    </p>
-                    <button
-                        class="mt-4 bg-[#7F1D1D] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                        View Full Prediction
-                    </button>
-                </div>
-
-                <!-- Book Private Reading -->
-                <div class="bg-white dark:bg-[#2A1515] p-5 sm:p-6 rounded-2xl shadow">
-                    <h2 class="text-base font-bold mb-4"> Book a Private Reading</h2>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
-                            <h3 class="font-semibold">Birth Chart Reading</h3>
-                            <p class="text-xs text-gray-500 mt-2">Detailed life analysis & predictions</p>
-                            <button
-                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                Book Now
-                            </button>
-                        </div>
-
-                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
-                            <h3 class="font-semibold">Love Compatibility</h3>
-                            <p class="text-xs text-gray-500 mt-2">Relationship & marriage insights</p>
-                            <button
-                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                Book Now
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Digital Spell Kit Store -->
-                <div class="bg-white dark:bg-[#2A1515] p-5 sm:p-6 rounded-2xl shadow">
-                    <h2 class="text-base font-bold mb-5"> Digital Spell Kits</h2>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
-                            <h3 class="font-semibold">Wealth Attraction Kit</h3>
-                            <p class="text-xs text-gray-500 mt-2">$29</p>
-                            <button
-                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                Buy Now
-                            </button>
-                        </div>
-
-                        <div class="p-4 border rounded-xl hover:shadow-lg transition">
-                            <h3 class="font-semibold">Love Energy Ritual</h3>
-                            <p class="text-xs text-gray-500 mt-2">$24</p>
-                            <button
-                                class="mt-3 w-full bg-[#7F1D1D] text-white py-2 rounded text-xs hover:bg-[#FACC15] hover:text-[#7F1D1D] transition">
-                                Buy Now
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-
-            </main>
+            </div>
+            <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-md border border-white/20">
+                <p class="text-xs uppercase tracking-widest opacity-80">Current Moon Phase</p>
+                <p class="text-2xl font-bold">Waning Gibbous</p>
+                <p class="text-xs mt-1">Illumination: 74%</p>
+            </div>
         </div>
 
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white dark:bg-[#2A1515] p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5">
+                <div class="flex justify-between items-start">
+                    <i class="bi bi-moon-stars text-2xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                    <span class="text-green-500 text-xs font-bold">+12% Energy</span>
+                </div>
+                <h3 class="text-lg font-bold mt-3">Leo ♌</h3>
+                <p class="text-xs text-gray-500">Sun Sign Profile</p>
+            </div>
+            <div class="bg-white dark:bg-[#2A1515] p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5">
+                <div class="flex justify-between items-start">
+                    <i class="bi bi-chat-heart text-2xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                    <span class="text-red-400 text-xs font-bold">High Intensity</span>
+                </div>
+                <h3 class="text-lg font-bold mt-3">Scorpio ♏</h3>
+                <p class="text-xs text-gray-500">Moon Sign Profile</p>
+            </div>
+            <div class="bg-white dark:bg-[#2A1515] p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5">
+                <i class="bi bi-calendar-event text-2xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                <h3 class="text-lg font-bold mt-3">2 Readings</h3>
+                <p class="text-xs text-gray-500">Scheduled for March</p>
+            </div>
+            <div class="bg-white dark:bg-[#2A1515] p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5">
+                <i class="bi bi-wallet2 text-2xl text-[#7F1D1D] dark:text-[#FACC15]"></i>
+                <h3 class="text-lg font-bold mt-3">$45.00</h3>
+                <p class="text-xs text-gray-500">Wallet Balance</p>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow-sm">
+                <h3 class="font-bold text-[#7F1D1D] dark:text-[#FACC15] mb-4">Cosmic Compatibility</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600">♈</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between text-sm mb-1"><span>Aries</span><span class="font-bold">95%</span></div>
+                            <div class="w-full bg-gray-100 rounded-full h-1.5"><div class="bg-orange-500 h-1.5 rounded-full" style="width: 95%"></div></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">♒</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between text-sm mb-1"><span>Aquarius</span><span class="font-bold">82%</span></div>
+                            <div class="w-full bg-gray-100 rounded-full h-1.5"><div class="bg-blue-500 h-1.5 rounded-full" style="width: 82%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow-sm">
+                <h3 class="font-bold text-[#7F1D1D] dark:text-[#FACC15] mb-4">Planetary Transits</h3>
+                <div class="text-sm space-y-3">
+                    <p class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500"></span> <strong>Mars in Aries:</strong> High ambition and energy levels.</p>
+                    <p class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-500"></span> <strong>Mercury Retrograde:</strong> Expect delays in travel and tech.</p>
+                    <p class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span> <strong>Venus in Taurus:</strong> A great time for stabilizing romance.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
+    <div id="section-birth-chart" class="content-section hidden space-y-6">
+        <div class="grid lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white dark:bg-[#2A1515] p-8 rounded-2xl shadow-sm text-center">
+                    <h3 class="text-xl font-bold mb-6 text-[#7F1D1D] dark:text-[#FACC15]">Your Natal Chart Visualization</h3>
+                    
+                    <div class="relative w-full aspect-square max-w-md mx-auto border-8 border-[#FACC15]/20 rounded-full p-4">
+                        <div class="w-full h-full rounded-full border border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center relative">
+                            <span class="absolute top-0 text-xl">♈</span>
+                            <span class="absolute right-0 text-xl">♋</span>
+                            <span class="absolute bottom-0 text-xl">♎</span>
+                            <span class="absolute left-0 text-xl">♑</span>
+                            <div class="text-center">
+                                <p class="text-xs uppercase text-gray-400">Sun Position</p>
+                                <p class="font-bold text-2xl">10th House</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mt-8 bg-[#7F1D1D] text-white px-8 py-3 rounded-full hover:bg-[#FACC15] hover:text-[#7F1D1D] transition font-bold">Download PDF Report</button>
+                </div>
 
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("overlay");
-        const openBtn = document.getElementById("openSidebar");
-        const closeBtn = document.getElementById("closeSidebar");
+                <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow-sm">
+                    <h3 class="font-bold mb-4">General Interpretation</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Your Sun in the 10th house indicates a strong drive for public recognition and career success. Combined with your Scorpio Moon, you possess an emotional depth that allows you to see through people's motivations, making you a powerful strategist.</p>
+                </div>
+            </div>
 
-        openBtn.onclick = () => {
-            sidebar.classList.remove("-translate-x-full");
-            overlay.classList.remove("hidden");
-        };
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-[#2A1515] p-6 rounded-2xl shadow-sm">
+                    <h3 class="font-bold text-[#7F1D1D] dark:text-[#FACC15] mb-4">Planet Placements</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between p-3 bg-gray-50 dark:bg-[#1A0F0F] rounded-lg text-sm">
+                            <span class="flex items-center gap-2">☀️ Sun</span>
+                            <span class="font-bold">Leo 12° 41'</span>
+                        </div>
+                        <div class="flex justify-between p-3 bg-gray-50 dark:bg-[#1A0F0F] rounded-lg text-sm">
+                            <span class="flex items-center gap-2">🌙 Moon</span>
+                            <span class="font-bold">Scorpio 4° 15'</span>
+                        </div>
+                        <div class="flex justify-between p-3 bg-gray-50 dark:bg-[#1A0F0F] rounded-lg text-sm">
+                            <span class="flex items-center gap-2">☿ Mercury</span>
+                            <span class="font-bold">Leo 28° 02'</span>
+                        </div>
+                        <div class="flex justify-between p-3 bg-gray-50 dark:bg-[#1A0F0F] rounded-lg text-sm">
+                            <span class="flex items-center gap-2">♀ Venus</span>
+                            <span class="font-bold">Virgo 15° 10'</span>
+                        </div>
+                        <div class="flex justify-between p-3 bg-gray-50 dark:bg-[#1A0F0F] rounded-lg text-sm">
+                            <span class="flex items-center gap-2">♂ Mars</span>
+                            <span class="font-bold">Aries 2° 55'</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        closeBtn.onclick = () => {
-            sidebar.classList.add("-translate-x-full");
-            overlay.classList.add("hidden");
-        };
+    <div id="section-horoscope" class="content-section hidden space-y-6">
+    <div class="bg-white dark:bg-[#2A1515] p-4 sm:p-8 rounded-3xl shadow-sm border-t-8 border-[#FACC15]">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center md:text-left">Today's Leo Horoscope</h2>
+            
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="bg-gray-100 dark:bg-[#1A0F0F] px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm whitespace-nowrap">Yesterday</button>
+                <button class="bg-[#7F1D1D] text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-bold whitespace-nowrap">Today</button>
+                <button class="bg-gray-100 dark:bg-[#1A0F0F] px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm whitespace-nowrap">Tomorrow</button>
+            </div>
+        </div>
 
-        overlay.onclick = () => {
-            sidebar.classList.add("-translate-x-full");
-            overlay.classList.add("hidden");
-        };
+        <div class="prose dark:prose-invert max-w-none mb-8">
+            <p class="text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                The morning hours might feel sluggish as the Moon completes its transit through your sector of rest. However, as the afternoon approaches, you'll feel a significant shift in energy. Leo, your natural charisma is heightened today. If you've been waiting to pitch an idea or ask for a favor, the window between 2:00 PM and 5:00 PM is your power hour. 
+            </p>
+        </div>
 
-        function toggleTheme() {
-            document.documentElement.classList.toggle("dark");
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <div class="bg-[#7F1D1D] text-white p-5 sm:p-6 rounded-2xl shadow-md">
+                <h4 class="font-bold text-lg sm:text-xl flex items-center gap-2">
+                    <i class="bi bi-heart-fill"></i> Love
+                </h4>
+                <p class="text-xs sm:text-sm mt-3 opacity-90">
+                    Single Leos may find a connection with someone from their past. Couples should prioritize a quiet night in.
+                </p>
+            </div>
 
-            const isDark = document.documentElement.classList.contains("dark");
+            <div class="bg-[#FACC15] text-[#7F1D1D] p-5 sm:p-6 rounded-2xl shadow-md">
+                <h4 class="font-bold text-lg sm:text-xl flex items-center gap-2">
+                    <i class="bi bi-briefcase-fill"></i> Career
+                </h4>
+                <p class="text-xs sm:text-sm mt-3 opacity-90 font-medium">
+                    Communication is key. Avoid signing legal documents until Mercury clears the shadow phase tomorrow.
+                </p>
+            </div>
 
-            document.getElementById("themeIconDesktop").className =
-                isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+            <div class="bg-gray-50 dark:bg-[#1A0F0F] p-5 sm:p-6 rounded-2xl shadow-md border border-gray-100 dark:border-white/10">
+                <h4 class="font-bold text-lg sm:text-xl flex items-center gap-2 text-[#7F1D1D] dark:text-[#FACC15]">
+                    <i class="bi bi-lightning-fill"></i> Vibe
+                </h4>
+                <p class="text-xs sm:text-sm mt-3 text-gray-500 dark:text-gray-400">
+                    Your luck color today is <strong class="text-[#7F1D1D] dark:text-[#FACC15]">Gold</strong> and your power number is <strong>8</strong>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-            document.getElementById("themeIconMobile").className =
-                isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+    <div id="section-settings" class="content-section hidden space-y-6">
+        <div class="bg-white dark:bg-[#2A1515] p-8 rounded-2xl shadow-sm">
+            <div class="flex items-center gap-6 border-b pb-8 mb-8">
+                <div class="relative">
+                    <img src="images/client1.avif" class="w-24 h-24 rounded-full border-4 border-[#FACC15]">
+                    <button class="absolute bottom-0 right-0 bg-[#7F1D1D] text-white p-2 rounded-full border-2 border-white"><i class="bi bi-camera"></i></button>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold">Aisha Sharma</h3>
+                    <p class="text-gray-500 text-sm">Member since January 2024</p>
+                    <span class="mt-2 inline-block bg-black text-yellow-100 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Premium Plan</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-400 uppercase text-xs tracking-widest">Personal Details</h4>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Birth Date & Time</label>
+                        <input type="datetime-local" value="1995-08-12T14:30" class="w-full p-3 border rounded-xl dark:bg-[#1A0F0F] dark:border-gray-700">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Birth City</label>
+                        <input type="text" value="New Delhi, India" class="w-full p-3 border rounded-xl dark:bg-[#1A0F0F] dark:border-gray-700">
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-400 uppercase text-xs tracking-widest">Notifications</h4>
+                    <div class="space-y-3">
+                        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer">
+                            <span class="text-sm">Daily Horoscope Email</span>
+                            <input type="checkbox" checked class="accent-[#7F1D1D] w-5 h-5">
+                        </label>
+                        <label class="flex justify-between items-center p-3 border rounded-xl cursor-pointer">
+                            <span class="text-sm">Transit Alerts (Push)</span>
+                            <input type="checkbox" checked class="accent-[#7F1D1D] w-5 h-5">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t flex justify-end gap-4">
+                <button class="px-6 py-2 rounded-xl border font-semibold text-sm">Cancel</button>
+                <button class="bg-[#7F1D1D] text-white px-8 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition">Save Account Changes</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+        </div>
+    </div>
+
+   <script>
+    // Sidebar Controls
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    const openBtn = document.getElementById("openSidebar");
+    const closeBtn = document.getElementById("closeSidebar");
+
+    openBtn.onclick = () => { sidebar.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); };
+    closeBtn.onclick = () => { sidebar.classList.add("-translate-x-full"); overlay.classList.add("hidden"); };
+    overlay.onclick = () => closeBtn.onclick();
+
+    // Section Switching Logic
+    function showSection(sectionId) {
+        document.querySelectorAll('.content-section').forEach(section => section.classList.add('hidden'));
+        document.getElementById('section-' + sectionId).classList.remove('hidden');
+        document.getElementById('page-title').innerText = sectionId.replace('-', ' ').toUpperCase();
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('bg-[#7F1D1D]', 'text-white', 'font-semibold');
+            link.classList.add('hover:bg-[#7F1D1D]', 'hover:text-white');
+        });
+        
+        // Use event.currentTarget safely
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add('bg-[#7F1D1D]', 'text-white', 'font-semibold');
         }
+        
+        if (window.innerWidth < 1024) closeBtn.onclick();
+    }
 
-        document.getElementById("themeBtnDesktop").onclick = toggleTheme;
-        document.getElementById("themeBtnMobile").onclick = toggleTheme;
+    // Theme Toggle Logic
+    function toggleTheme() {
+        document.documentElement.classList.toggle("dark");
+        const isDark = document.documentElement.classList.contains("dark");
+        const iconClass = isDark ? "bi bi-sun-fill" : "bi bi-moon-fill";
+        document.getElementById("themeIconDesktop").className = iconClass;
+        document.getElementById("themeIconMobile").className = iconClass;
+    }
 
+    document.getElementById("themeBtnDesktop").onclick = toggleTheme;
+    document.getElementById("themeBtnMobile").onclick = toggleTheme;
 
-        // RTL
-        function toggleRTL() {
-            document.documentElement.dir =
-                document.documentElement.dir === "rtl" ? "ltr" : "rtl";
-        }
+    // RTL Toggle Logic (FIXED)
+    function toggleRTL() {
+        document.documentElement.dir = document.documentElement.dir === "rtl" ? "ltr" : "rtl";
+    }
 
-        document.getElementById("rtlBtnDesktop").onclick = toggleRTL;
-        document.getElementById("rtlBtnMobile").onclick = toggleRTL;
+    // ADD THESE LINES TO FIX YOUR RTL BUTTONS
+    document.getElementById("rtlBtnDesktop").onclick = toggleRTL;
+    document.getElementById("rtlBtnMobile").onclick = toggleRTL;
 
-        tailwind.config = {
+    tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
@@ -309,8 +421,7 @@
             },
         }
 
-    </script>
-
+</script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - Groww Astro</title>
+  <title>Sign Up - Astroly</title>
   <link rel="icon" href="images/logo.jpeg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,14 +17,15 @@
     }
 
     [data-theme="dark"] {
-      --home-bg: #0f0a1f;
+      --home-bg: #000000;
       --text-color: #fff;
     }
 
     [data-theme="dark"] .card {
-      background-color: #111;
+      background-color: rgb(61, 61, 61);
     }
-[data-theme="dark"] .title {
+
+    [data-theme="dark"] .title {
       color: white;
     }
 
@@ -45,18 +46,18 @@
 <body class="font-sans">
 
   <!-- NAVBAR (SAME AS LOGIN) -->
-  <nav class="w-full bg-white shadow-md">
+  <nav class="card w-full bg-white shadow-md">
     <div class="max-w-4xl mx-auto px-6 flex items-center justify-between h-16">
 
       <h1 class="text-2xl font-bold ">
-                <a href="index.html" class="transition text-[#7F1D1D] ">
-                    Groww Astro
-                </a>
-            </h1>
+        <a href="index.html" class="title transition text-[#7F1D1D] ">
+          Astroly
+        </a>
+      </h1>
 
       <div class="flex gap-4 text-xl">
-        <button id="rtlToggle" class="text-[#7F1D1D]">⇄</button>
-        <button id="theme-toggle" class="text-[#7F1D1D]">
+        <button id="rtlToggle" class="title text-[#7F1D1D]">⇄</button>
+        <button id="theme-toggle" class="title text-[#7F1D1D]">
           <i class="bi bi-moon-fill"></i>
         </button>
       </div>
@@ -68,28 +69,28 @@
   <div class="flex justify-center items-center min-h-screen px-4 pt-8 mt-[-50px]">
 
     <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-xl 
-            overflow-hidden w-full max-w-4xl border border-white">
+            overflow-hidden w-full max-w-4xl ">
 
       <!-- LEFT MARKETING -->
       <div class="card1 lg:w-1/2 flex flex-col justify-between p-10 
                 bg-[#7F1D1D] text-white">
 
         <div>
-  <h1 class="text-3xl font-bold mb-3 text-[#FACC15]">
-    Begin Your Cosmic Journey
-  </h1>
+          <h1 class="text-3xl font-bold mb-3 text-[#FACC15]">
+            Begin Your Cosmic Journey
+          </h1>
 
-  <p class="mb-6 text-gray-200">
-    Create your astro profile and unlock personalized insights 
-    based on your zodiac sign, planetary alignments, and cosmic energy.
-  </p>
+          <p class="mb-6 text-gray-200">
+            Create your astro profile and unlock personalized insights
+            based on your zodiac sign, planetary alignments, and cosmic energy.
+          </p>
 
-  <ul class="space-y-3">
-    <li>♈ Personalized Zodiac Reports</li>
-    <li>🌙 Daily Horoscope & Energy Guidance</li>
-    <li>⭐ Planetary Alignment Insights</li>
-  </ul>
-</div>
+          <ul class="space-y-3">
+            <li>♈ Personalized Zodiac Reports</li>
+            <li>🌙 Daily Horoscope & Energy Guidance</li>
+            <li>⭐ Planetary Alignment Insights</li>
+          </ul>
+        </div>
 
         <div class="bg-[#FACC15]/20 p-4 rounded-lg text-center mt-10">
           <p class="font-semibold text-[#FACC15]">
@@ -125,8 +126,12 @@
             <input type="email" placeholder="Email Address"
               class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-[#FACC15]" required>
 
-            <input type="password" placeholder="Password"
-              class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-[#FACC15]" required>
+            <div class="flex gap-4">
+              <input type="password" placeholder="Password"
+                class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-[#EC4899]" required>
+              <input type="password" placeholder="Confirm Password"
+                class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-[#EC4899]" required>
+            </div>
 
             <div class="flex items-center gap-2 text-sm">
               <input type="checkbox" id="terms" class="accent-[#7F1D1D]" required>
@@ -214,14 +219,14 @@
         : '<i class="bi bi-moon-fill"></i>';
     }
     tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
-                    },
-                },
-            },
-        }
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+          },
+        },
+      },
+    }
 
   </script>
 

@@ -63,6 +63,10 @@ body {
 [data-theme="dark"] #profileMenu a:hover {
   color: #000000 !important;
 }
+[data-theme="dark"] #mainNavbar,
+[data-theme="dark"] #mobileMenu{
+  background-color: #323131 !important;
+}
 
 @media (max-width: 1441px) {
   [dir="rtl"] #profileMenu {
@@ -186,21 +190,12 @@ body {
   }
 }
 
-#mobileMenu,
-#mobileMenu a,
-#mobileMenu span,
-#mobileMenu h2,
-#mobileMenu button {
-  color: #7F1D1D !important;
-}
- [data-theme="dark"] #mainNavbar a,
- [data-theme="dark"] #mainNavbar li,
- [data-theme="dark"] #hamburgerBtn i{
-  color: #7F1D1D !important;
-}
 [data-theme="dark"] #homeDropdownMenu a,
 [data-theme="dark"] #dashboardDropdownMenu a,
-[data-theme="dark"] #profileMenu a{
+[data-theme="dark"] #profileMenu a,
+[data-theme="dark"] #mainNavbar i,
+[data-theme="dark"] #mainNavbar button,
+[data-theme="dark"] #mobileMenu i{
   color: white !important;
 }
  /* h1{

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div>
      <h1 class="text-2xl font-bold ">
       <a href="index.html" class="transition">
-        Groww Astro
+        Astroly
       </a>
     </h1>
 
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
   <!-- BOTTOM BAR -->
   <div class="border-t border-[#7F1D1D] py-6 text-center text-xs px-4">
-    © ${new Date().getFullYear()} Groww Astro. All Rights Reserved.
+    © ${new Date().getFullYear()} Astroly. All Rights Reserved.
   </div>
 
 </footer>

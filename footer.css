@@ -1,7 +1,7 @@
-[data-theme="dark"] footer a,
-[data-theme="dark"] footer p,
-[data-theme="dark"] footer h3,
-[data-theme="dark"] footer i,
-[data-theme="dark"] footer span  {
-  color: #7F1D1D !important;
+
+[data-theme="dark"] footer div  {
+  color: white !important;
+} 
+[data-theme="dark"] footer{
+  background-color: #29292a !important;
 }

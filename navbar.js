@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Logo -->
     <h1 class="text-2xl font-bold ">
       <a href="index.html" class="transition">
-        Groww Astro
+        Astroly
       </a>
     </h1>
 
@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </li>
 
         <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
         <li><a href="astro.html">Astrology</a></li>
         <li><a href="tarot.html">Tarot</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
 
         <!-- Dashboard Dropdown -->
@@ -169,9 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
       </li>
 
       <li><a href="about.html" class="block py-2 transition">About</a></li>
-      <li><a href="blog.html" class="block py-2  transition">Blog</a></li>
       <li><a href="astro.html" class="block py-2  transition">Astrology</a></li>
       <li><a href="tarot.html" class="block py-2  transition">Tarot</a></li>
+      <li><a href="blog.html" class="block py-2  transition">Blog</a></li>
       <li><a href="contact.html" class="block py-2 transition">Contact</a></li>
 
       <!-- Dashboard -->
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <i class="bi bi-person-circle"></i>
           </button>
           <ul id="mobileProfileMenu"
-            class="hidden absolute top-12 right-0 w-40 bg-[#4B0082] rounded-xl shadow-lg p-2 z-50">
+            class="hidden absolute top-12 right-0 w-40  rounded-xl shadow-lg p-2 z-50">
             <li><a href="login.html" class="block px-3 py-2 hover:bg-[#2E0854] rounded-lg">Login</a></li>
             <li><a href="sign.html" class="block px-3 py-2 hover:bg-[#2E0854] rounded-lg">Sign Up</a></li>
           </ul>
